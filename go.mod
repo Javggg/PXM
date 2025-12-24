@@ -1,3 +1,3 @@
-module javg/pxm
+module pxm
 
 go 1.25.5
