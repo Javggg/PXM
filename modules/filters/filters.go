@@ -5,11 +5,85 @@ import (
 	"pxm/modules/regions"
 )
 
-type FilterElement interface{}
+type FilterElement any
 
 type Filters struct {
-	XMLName xml.Name        `xml:"filters"`
-	Items   []FilterElement `xml:",any"`
+	XMLName xml.Name `xml:"filters"`
+	FilterContainer
+}
+
+type BaseFilter struct {
+	ID *string `xml:"id,attr,omitempty"`
+}
+
+type FilterContainer struct {
+	FilterRefs []FilterRef `xml:"filter"`
+
+	Always        []Always        `xml:"always"`
+	Never         []Never         `xml:"never"`
+	Time          []Time          `xml:"time"`
+	MatchStarted  []MatchStarted  `xml:"match-started"`
+	MatchRunning  []MatchRunning  `xml:"match-running"`
+	MatchFinished []MatchFinished `xml:"match-finished"`
+	Completed     []Completed     `xml:"completed"`
+	Captured      []Captured      `xml:"captured"`
+
+	FlagCarried  []FlagCarried  `xml:"flag-carried"`
+	FlagDropped  []FlagDropped  `xml:"flag-dropped"`
+	FlagReturned []FlagReturned `xml:"flag-returned"`
+	FlagCaptured []FlagCaptured `xml:"flag-captured"`
+
+	Void   []Void   `xml:"void"`
+	Blocks []Blocks `xml:"blocks"`
+
+	Material       []Material       `xml:"material"`
+	StructuralLoad []StructuralLoad `xml:"structural-load"`
+
+	Spawn  []Spawn  `xml:"spawn"`
+	Mob    []Mob    `xml:"mob"`
+	Entity []Entity `xml:"entity"`
+
+	CarryingFlag []CarryingFlag `xml:"carrying-flag"`
+	Score        []Score        `xml:"score"`
+	Rank         []Rank         `xml:"rank"`
+
+	Participating []Participating `xml:"participating"`
+	Observing     []Observing     `xml:"observing"`
+	KillStreak    []KillStreak    `xml:"kill-streak"`
+	Lives         []Lives         `xml:"lives"`
+	Crouching     []Crouching     `xml:"crouching"`
+	Walking       []Walking       `xml:"walking"`
+	Sprinting     []Sprinting     `xml:"sprinting"`
+	Grounded      []Grounded      `xml:"grounded"`
+	Flying        []Flying        `xml:"flying"`
+	Alive         []Alive         `xml:"alive"`
+	Dead          []Dead          `xml:"dead"`
+	CanFly        []CanFly        `xml:"can-fly"`
+	Team          []Team          `xml:"team"`
+	Class         []Class         `xml:"class"`
+	Effect        []Effect        `xml:"effect"`
+
+	Carrying []Carrying `xml:"carrying"`
+	Holding  []Holding  `xml:"holding"`
+	Wearing  []Wearing  `xml:"wearing"`
+
+	Cause  []Cause  `xml:"cause"`
+	Random []Random `xml:"random"`
+
+	Relation []Relation `xml:"relation"`
+
+	Countdown []Countdown `xml:"countdown"`
+	After     []After     `xml:"after"`
+	Pulse     []Pulse     `xml:"pulse"`
+
+	Variable []Variable `xml:"variable"`
+	Offset   []Offset   `xml:"offset"`
+}
+
+type FilterInPlace struct {
+	XMLName xml.Name `xml:"filter"`
+	BaseFilter
+	FilterContainer
 }
 
 type FilterRef struct {
@@ -17,8 +91,8 @@ type FilterRef struct {
 	RefID   string   `xml:"id,attr"`
 }
 
-type BaseFilter struct {
-	ID *string `xml:"id,attr,omitempty"`
+type AnyFilter struct { // TODO: custom unmarshaller for this crap
+	FilterElement
 }
 
 // Generic
@@ -36,7 +110,7 @@ type Never struct {
 type Time struct {
 	XMLName xml.Name `xml:"time"`
 	BaseFilter
-	Value string `xml:",chardata"` // check for valid duration
+	Value string `xml:",chardata"` // TODO: check for valid duration
 }
 
 type MatchStarted struct {
@@ -54,37 +128,45 @@ type MatchFinished struct {
 	BaseFilter
 }
 
-type Objective struct {
-	XMLName xml.Name `xml:"objective"`
+type Completed struct {
+	XMLName xml.Name `xml:"completed"`
 	BaseFilter
-	ObjectiveID string `xml:",chardata"` // check for id
+	Any         *bool   `xml:"any,attr,omitempty"`
+	Team        *string `xml:"team,attr,omitempty"` // TODO: check
+	ObjectiveID string  `xml:",chardata"`           // TODO: check
+}
+
+type Captured struct {
+	XMLName xml.Name `xml:"completed"`
+	BaseFilter
+	ObjectiveID string `xml:",chardata"`
 }
 
 type FlagCarried struct {
 	XMLName xml.Name `xml:"flag-carried"`
 	BaseFilter
-	FlagID string `xml:",chardata"` // check for id
+	FlagID string `xml:",chardata"` // TODO: check for id
 }
 
 type FlagDropped struct {
 	XMLName xml.Name `xml:"flag-dropped"`
 	BaseFilter
-	FlagID string `xml:",chardata"` // check for id
+	FlagID string `xml:",chardata"` // TODO: check for id
 }
 
 type FlagReturned struct {
 	XMLName xml.Name `xml:"flag-returned"`
 	BaseFilter
-	FlagID string `xml:",chardata"` // check for id
+	FlagID string `xml:",chardata"` // TODO: check for id
 }
 
 type FlagCaptured struct {
 	XMLName xml.Name `xml:"flag-captured"`
 	BaseFilter
-	FlagID string `xml:",chardata"` // check for id
+	FlagID string `xml:",chardata"` // TODO: check for id
 }
 
-// Spacial
+// Spatial
 
 type Void struct {
 	XMLName xml.Name `xml:"void"`
@@ -95,8 +177,8 @@ type Blocks struct {
 	XMLName xml.Name `xml:"blocks"`
 	BaseFilter
 
-	Region regions.RegionRef `xml:"region,attr"` // check for region
-	Filter FilterElement     `xml:",any"`
+	Region regions.RegionRef `xml:"region,attr"`
+	FilterContainer
 }
 
 // Blocks
@@ -104,7 +186,7 @@ type Blocks struct {
 type Material struct {
 	XMLName xml.Name `xml:"material"`
 	BaseFilter
-	Value string `xml:",chardata"` // check for material
+	Value string `xml:",chardata"` // TODO: check for material
 }
 
 type StructuralLoad struct {
@@ -118,19 +200,19 @@ type StructuralLoad struct {
 type Spawn struct {
 	XMLName xml.Name `xml:"spawn"`
 	BaseFilter
-	Reason string `xml:",chardata"` // check for reason
+	Reason string `xml:",chardata"` // TODO: check for reason
 }
 
 type Mob struct {
 	XMLName xml.Name `xml:"mob"`
 	BaseFilter
-	Name string `xml:",chardata"` // check for mob
+	Name string `xml:",chardata"` // TODO: check for mob
 }
 
 type Entity struct {
 	XMLName xml.Name `xml:"entity"`
 	BaseFilter
-	Name string `xml:",chardata"` // check for entity
+	Name string `xml:",chardata"` // TODO: check for entity
 }
 
 // Competitor
@@ -138,21 +220,21 @@ type Entity struct {
 type CarryingFlag struct {
 	XMLName xml.Name `xml:"carrying-flag"`
 	BaseFilter
-	FlagID string `xml:",chardata"` // check for id
+	FlagID string `xml:",chardata"` // TODO: check for id
 }
 
 type Score struct {
 	XMLName xml.Name `xml:"score"`
 	BaseFilter
-	TeamID *string `xml:"team,attr,omitempty"` //check for team id
-	Value  string  `xml:",chardata"`           // check for valid range
+	TeamID *string `xml:"team,attr,omitempty"` // TODO: check for team id
+	Value  string  `xml:",chardata"`           // TODO: check for valid range
 }
 
 type Rank struct {
 	XMLName xml.Name `xml:"rank"`
 	BaseFilter
-	TeamID *string `xml:"team,attr,omitempty"` //check for team id
-	Value  string  `xml:",chardata"`           // check for valid range
+	TeamID *string `xml:"team,attr,omitempty"` // TODO: check for team id
+	Value  string  `xml:",chardata"`           // TODO: check for valid range
 }
 
 // Player
@@ -228,19 +310,19 @@ type CanFly struct {
 type Team struct {
 	XMLName xml.Name `xml:"team"`
 	BaseFilter
-	TeamID string `xml:",chardata"` // check for team id
+	TeamID string `xml:",chardata"` // TODO: check for team id
 }
 
 type Class struct {
 	XMLName xml.Name `xml:"class"`
 	BaseFilter
-	Name string `xml:",chardata"` // check for class
+	Name string `xml:",chardata"` // TODO: check for class
 }
 
 type Effect struct {
 	XMLName xml.Name `xml:"effect"`
 	BaseFilter
-	Name string `xml:",chardata"` // check for effect
+	Name string `xml:",chardata"` // TODO: check for effect
 }
 
 // Item sub-element
@@ -287,13 +369,13 @@ type Wearing struct {
 type Cause struct {
 	XMLName xml.Name `xml:"cause"`
 	BaseFilter
-	CauseType string `xml:",chardata"` // check for cause
+	CauseType string `xml:",chardata"` // TODO: check for cause
 }
 
 type Random struct {
 	XMLName xml.Name `xml:"random"`
 	BaseFilter
-	Value string `xml:",chardata"` // check for decimal or range
+	Value string `xml:",chardata"` // TODO: check for decimal or range
 }
 
 // Damage
@@ -301,5 +383,124 @@ type Random struct {
 type Relation struct {
 	XMLName xml.Name `xml:"relation"`
 	BaseFilter
-	RelationType string `xml:",chardata"` // check for relation
+	RelationType string `xml:",chardata"` // TODO: check for relation
+}
+
+// Time
+
+type Countdown struct {
+	XMLName xml.Name `xml:"countdown"`
+	BaseFilter
+	Duration string     `xml:"duration,attr"`
+	Message  *string    `xml:"message,attr,omitempty"`
+	FilterID *string    `xml:"filter,attr,omitempty"`
+	Filter   *AnyFilter `xml:",any"`
+}
+
+type After struct {
+	XMLName xml.Name `xml:"after"`
+	BaseFilter
+	Duration string     `xml:"duration,attr"`
+	Message  *string    `xml:"message,attr,omitempty"`
+	FilterID *string    `xml:"filter,attr,omitempty"`
+	Filter   *AnyFilter `xml:",any"`
+}
+
+type Pulse struct {
+	XMLName xml.Name `xml:"pulse"`
+	BaseFilter
+	Period   *string    `xml:"period,attr,omitempty"`
+	Duration string     `xml:"duration,attr"`
+	FilterID *string    `xml:"filter,attr,omitempty"`
+	Filter   *AnyFilter `xml:",any"`
+}
+
+// Other
+
+// TODO: check for variable
+type Variable struct {
+	XMLName xml.Name `xml:"variable"`
+	BaseFilter
+	VarID string `xml:"var,attr"`
+	Value string `xml:",chardata"` // TODO: check for decimal or range
+}
+
+type Offset struct {
+	XMLName xml.Name `xml:"offset"`
+	BaseFilter
+	Vector string   `xml:"vector,attr"`
+	Filter Material `xml:"material"`
+}
+
+type Players struct {
+	XMLName xml.Name `xml:"players"`
+	BaseFilter
+	Min          *int       `xml:"min,attr,omitempty"`
+	Max          *int       `xml:"max,attr,omitempty"`
+	Participants *bool      `xml:"participants,attr,omitempty"`
+	Observers    *bool      `xml:"observers,attr,omitempty"`
+	FilterID     *string    `xml:"filter,attr,omitempty"`
+	Filter       *AnyFilter `xml:",any"`
+}
+
+// Modifiers
+
+type Not struct {
+	XMLName xml.Name `xml:"not"`
+	BaseFilter
+	FilterContainer
+}
+
+type One struct {
+	XMLName xml.Name `xml:"one"`
+	BaseFilter
+	FilterContainer
+}
+
+type All struct {
+	XMLName xml.Name `xml:"all"`
+	BaseFilter
+	FilterContainer
+}
+
+type Any struct {
+	XMLName xml.Name `xml:"any"`
+	BaseFilter
+	FilterContainer
+}
+
+type Allow struct {
+	XMLName xml.Name `xml:"allow"`
+	BaseFilter
+	FilterContainer
+}
+
+type Deny struct {
+	XMLName xml.Name `xml:"deny"`
+	BaseFilter
+	FilterContainer
+}
+
+type SameTeam struct {
+	XMLName xml.Name `xml:"same-team"`
+	BaseFilter
+	FilterContainer
+}
+
+type Victim struct {
+	XMLName xml.Name `xml:"victim"`
+	BaseFilter
+	FilterContainer
+}
+
+type Attacker struct {
+	XMLName xml.Name `xml:"attacker"`
+	BaseFilter
+	FilterContainer
+}
+
+type Player struct {
+	XMLName xml.Name `xml:"player"`
+	BaseFilter
+	FilterContainer
 }
