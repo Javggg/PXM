@@ -12,3 +12,14 @@ type Author struct {
 	UUID         string   `xml:"uuid,attr"`
 	Contribution *string  `xml:"contribution,attr"`
 }
+
+type Contributors struct {
+	XMLName      xml.Name      `xml:"contributors"`
+	Contributors []Contributor `xml:"contributor"`
+}
+
+type Contributor struct {
+	XMLName      xml.Name `xml:"contributor"`
+	UUID         string   `xml:"uuid,attr"`
+	Contribution *string  `xml:"contribution,attr"`
+}
