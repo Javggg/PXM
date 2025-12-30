@@ -7,7 +7,7 @@ import (
 	"pxm/modules/maproot"
 )
 
-func decodeXml(file *os.File) {
+func decodeXml(file *os.File) maproot.Map {
 	var m maproot.Map
 	decoder := xml.NewDecoder(file)
 
@@ -17,12 +17,7 @@ func decodeXml(file *os.File) {
 
 	fmt.Printf("Parsed map from %s: %+v\n", file.Name(), m)
 
-	output, err := xml.MarshalIndent(m, "", "    ")
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println(string(xml.Header) + string(output))
+	return m
 }
 
 func main() {
@@ -32,6 +27,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	var xmlFiles []maproot.Map
 
 	for _, entry := range files {
 		if entry.IsDir() {
@@ -45,6 +42,24 @@ func main() {
 
 		defer file.Close()
 
-		decodeXml(file)
+		xmlMap := decodeXml(file)
+
+		xmlFiles = append(xmlFiles, xmlMap)
+
 	}
+
+	for i, xml := range xmlFiles {
+		if i == 0 {
+			continue
+		}
+
+		xmlFiles[0].Merge(xml)
+	}
+
+	out, err := xml.MarshalIndent(xmlFiles[0], "  ", "    ") // prefix=" ", indent="    "
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Print(string(out))
 }
