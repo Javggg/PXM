@@ -28,7 +28,7 @@ Simple merger for PGM XML files.
     Variables
 </div>
 <div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
+    <img src="https://progress-bar.xyz/100" />
     Constants
 </div>
 <div style="display:flex;align-items:center;gap:5px">

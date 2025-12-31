@@ -4,6 +4,7 @@ import (
 	"encoding/xml"
 	"pxm/modules/filters"
 	"pxm/modules/regions"
+	"pxm/modules/replacements"
 )
 
 type Actions struct {
@@ -68,14 +69,15 @@ type Repeat struct {
 }
 
 type Message struct {
-	XMLName   xml.Name `xml:"message"`
-	Text      *string  `xml:"text,attr,omitempty"` // TODO: support as child
-	ActionBar *string  `xml:"actionbar,attr,omitempty"`
-	Title     *string  `xml:"title,attr,omitempty"`
-	Subtitle  *string  `xml:"subtitle,attr,omitempty"`
-	FadeIn    *string  `xml:"fade-in,attr,omitempty"` // TODO: check time
-	Stay      *string  `xml:"stay,attr,omitempty"`
-	FadeOut   *string  `xml:"fade-out,attr,omitempty"`
+	XMLName      xml.Name                           `xml:"message"`
+	Text         *string                            `xml:"text,attr,omitempty"` // TODO: support as child
+	ActionBar    *string                            `xml:"actionbar,attr,omitempty"`
+	Title        *string                            `xml:"title,attr,omitempty"`
+	Subtitle     *string                            `xml:"subtitle,attr,omitempty"`
+	FadeIn       *string                            `xml:"fade-in,attr,omitempty"` // TODO: check time
+	Stay         *string                            `xml:"stay,attr,omitempty"`
+	FadeOut      *string                            `xml:"fade-out,attr,omitempty"`
+	Replacements replacements.ReplacementsContainer `xml:"replacements,omitempty"`
 }
 
 type Sound struct {

@@ -49,6 +49,14 @@ func (m *Map) Merge(other Map) {
 		m.Variables = &copy
 	}
 
+	// Replacements
+	if m.Replacements != nil && other.Replacements != nil {
+		m.Replacements.Merge(*other.Replacements)
+	} else if m.Replacements == nil && other.Replacements != nil {
+		copy := *other.Replacements
+		m.Replacements = &copy
+	}
+
 	// Actions
 	if m.Actions != nil && other.Actions != nil {
 		m.Actions.Merge(*other.Actions)
