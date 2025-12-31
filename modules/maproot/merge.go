@@ -25,6 +25,14 @@ func (m *Map) Merge(other Map) {
 		m.Regions = &copy
 	}
 
+	// Filters
+	if m.Filters != nil && other.Filters != nil {
+		m.Filters.Merge(*other.Filters)
+	} else if m.Filters == nil && other.Filters != nil {
+		copy := *other.Filters
+		m.Filters = &copy
+	}
+
 	// Actions
 	if m.Actions != nil && other.Actions != nil {
 		m.Actions.Merge(*other.Actions)

@@ -78,6 +78,19 @@ type FilterContainer struct {
 
 	Variable []Variable `xml:"variable"`
 	Offset   []Offset   `xml:"offset"`
+
+	Players []Players `xml:"players"`
+
+	Not      []Not      `xml:"not"`
+	One      []One      `xml:"one"`
+	All      []All      `xml:"all"`
+	Any      []Any      `xml:"any"`
+	Allow    []Allow    `xml:"allow"`
+	Deny     []Deny     `xml:"deny"`
+	SameTeam []SameTeam `xml:"same-team"`
+	Victim   []Victim   `xml:"victim"`
+	Attacker []Attacker `xml:"attacker"`
+	Player   []Player   `xml:"player"`
 }
 
 type FilterInPlace struct {
