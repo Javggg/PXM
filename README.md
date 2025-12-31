@@ -20,7 +20,7 @@ Simple merger for PGM XML files.
     Regions
 </div>
 <div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
+    <img src="https://progress-bar.xyz/100" />
     Actions
 </div>
 <div style="display:flex;align-items:center;gap:5px">

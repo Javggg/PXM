@@ -2,6 +2,7 @@ package maproot
 
 import (
 	"encoding/xml"
+	"pxm/modules/actions"
 	"pxm/modules/authors"
 	"pxm/modules/filters"
 	"pxm/modules/regions"
@@ -17,4 +18,5 @@ type Map struct {
 	Contributors     *authors.Contributors `xml:"contributors,omitempty"`
 	Regions          *regions.Regions      `xml:"regions,omitempty"`
 	Filters          *filters.Filters      `xml:"filters,omitempty"`
+	Actions          *actions.Actions      `xml:"actions,omitempty"`
 }

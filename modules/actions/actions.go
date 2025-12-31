@@ -17,6 +17,7 @@ type BaseAction struct {
 
 type ActionContainer struct {
 	Action         []Action         `xml:"action"`
+	Trigger        []Trigger        `xml:"trigger"`
 	SwitchScope    []SwitchScope    `xml:"switch-scope"`
 	Repeat         []Repeat         `xml:"repeat"`
 	Message        []Message        `xml:"message"`
