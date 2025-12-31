@@ -6,6 +6,7 @@ import (
 	"pxm/modules/authors"
 	"pxm/modules/filters"
 	"pxm/modules/regions"
+	"pxm/modules/variables"
 )
 
 type Map struct {
@@ -13,10 +14,11 @@ type Map struct {
 	Proto            string                `xml:"proto,attr"`
 	MinServerVersion *string               `xml:"min-server-version,attr"`
 	MaxServerVersion *string               `xml:"max-server-version,attr"`
-	Internal         *bool                 `xml:"internal,attr"`
+	Internal         *string               `xml:"internal,attr"`
 	Authors          *authors.Authors      `xml:"authors,omitempty"`
 	Contributors     *authors.Contributors `xml:"contributors,omitempty"`
 	Regions          *regions.Regions      `xml:"regions,omitempty"`
 	Filters          *filters.Filters      `xml:"filters,omitempty"`
 	Actions          *actions.Actions      `xml:"actions,omitempty"`
+	Variables        *variables.Variables  `xml:"variables,omitempty"`
 }

@@ -41,7 +41,7 @@ type Action struct {
 	Scope           string  `xml:"scope,attr,omitempty"` // TODO: check
 	Filter          *string `xml:"filter,attr,omitempty"`
 	UntriggerFilter *string `xml:"untrigger-filter,attr,omitempty"`
-	Expose          *bool   `xml:"expose,attr,omitempty"`
+	Expose          *string `xml:"expose,attr,omitempty"`
 }
 
 type Trigger struct {
@@ -50,7 +50,7 @@ type Trigger struct {
 	InlineFilter *string                  `xml:"filter,attr,omitempty"`
 	Filter       *filters.FilterContainer `xml:"filter,omitempty"`
 	Scope        string                   `xml:"scope,attr"` // TODO: check
-	Observers    *bool                    `xml:"observers,attr,omitempty"`
+	Observers    *string                  `xml:"observers,attr,omitempty"`
 }
 
 type SwitchScope struct {
@@ -58,7 +58,7 @@ type SwitchScope struct {
 	ActionContainer
 	Inner     string  `xml:"inner,attr"` // TODO: check
 	Outer     *string `xml:"outer,attr,omitempty"`
-	Observers *bool   `xml:"observers,attr,omitempty"`
+	Observers *string `xml:"observers,attr,omitempty"`
 }
 
 type Repeat struct {
@@ -82,8 +82,8 @@ type Sound struct {
 	XMLName xml.Name `xml:"sound"`
 	Preset  *string  `xml:"preset,attr,omitempty"`
 	Key     *string  `xml:"key,attr,omitempty"`
-	Volume  *float32 `xml:"volume,attr,omitempty"`
-	Pitch   *float32 `xml:"pitch,attr,omitempty"`
+	Volume  *string  `xml:"volume,attr,omitempty"`
+	Pitch   *string  `xml:"pitch,attr,omitempty"`
 }
 
 type Set struct {
@@ -104,8 +104,8 @@ type Fill struct {
 	Region       *regions.RegionContainer `xml:"region,omitempty"`
 	Material     string                   `xml:"material"`
 	Filter       *string                  `xml:"filter,attr"`
-	Events       *bool                    `xml:"events,attr,omitempty"`
-	Update       *bool                    `xml:"update,attr,omitempty"`
+	Events       *string                  `xml:"events,attr,omitempty"`
+	Update       *string                  `xml:"update,attr,omitempty"`
 }
 
 type PasteStructure struct {
@@ -114,7 +114,7 @@ type PasteStructure struct {
 	Y         string   `xml:"y,attr"`
 	Z         string   `xml:"z,attr"`
 	Structure string   `xml:"structure,attr"`
-	Update    *bool    `xml:"update,attr,omitempty"`
+	Update    *string  `xml:"update,attr,omitempty"`
 }
 
 type Item struct {
@@ -125,9 +125,9 @@ type ReplaceItem struct {
 	XMLName        xml.Name `xml:"replace-item"`
 	Find           Item     `xml:"find"`
 	Replace        Item     `xml:"replace"`
-	KeepAmount     *bool    `xml:"keep-amount,attr,omitempty"`
-	KeepEnchants   *bool    `xml:"keep-enchants,attr,omitempty"`
-	IgnoreMetadata *bool    `xml:"ignore-metadata,attr,omitempty"`
+	KeepAmount     *string  `xml:"keep-amount,attr,omitempty"`
+	KeepEnchants   *string  `xml:"keep-enchants,attr,omitempty"`
+	IgnoreMetadata *string  `xml:"ignore-metadata,attr,omitempty"`
 	Amount         *string  `xml:"amount,attr,omitempty"`
 }
 
@@ -135,7 +135,7 @@ type EnchantItem struct {
 	XMLName        xml.Name `xml:"enchant-item"`
 	Enchantment    string   `xml:"enchantment,attr"`
 	Level          string   `xml:"level,attr"`
-	IgnoreMetadata bool     `xml:"ignore-metadata,attr,omitempty"`
+	IgnoreMetadata string   `xml:"ignore-metadata,attr,omitempty"`
 }
 
 // TODO: type TakePayment struct {}

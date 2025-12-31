@@ -144,7 +144,7 @@ type MatchFinished struct {
 type Completed struct {
 	XMLName xml.Name `xml:"completed"`
 	BaseFilter
-	Any         *bool   `xml:"any,attr,omitempty"`
+	Any         *string `xml:"any,attr,omitempty"`
 	Team        *string `xml:"team,attr,omitempty"` // TODO: check
 	ObjectiveID string  `xml:",chardata"`           // TODO: check
 }
@@ -205,7 +205,7 @@ type Material struct {
 type StructuralLoad struct {
 	XMLName xml.Name `xml:"structural-load"`
 	BaseFilter
-	Value int `xml:",chardata"`
+	Value string `xml:",chardata"`
 }
 
 // Entity
@@ -268,8 +268,8 @@ type KillStreak struct {
 	Min        *string `xml:"min,attr,omitempty"`
 	Max        *string `xml:"max,attr,omitempty"`
 	Count      *string `xml:"count,attr,omitempty"`
-	Repeat     *bool   `xml:"repeat,attr,omitempty"`
-	Persistent *bool   `xml:"persistent,attr,omitempty"`
+	Repeat     *string `xml:"repeat,attr,omitempty"`
+	Persistent *string `xml:"persistent,attr,omitempty"`
 }
 
 type Lives struct {
@@ -348,10 +348,10 @@ type Carrying struct {
 	XMLName xml.Name `xml:"carrying"`
 	BaseFilter
 	Amount             *string `xml:"amount,attr,omitempty"`
-	IgnoreDurability   *bool   `xml:"ignore-durability,attr,omitempty"`
-	IgnoreMetadata     *bool   `xml:"ignore-metadata,attr,omitempty"`
-	IgnoreName         *bool   `xml:"ignore-name,attr,omitempty"`
-	IgnoreEnchantments *bool   `xml:"ignore-enchantments,attr,omitempty"`
+	IgnoreDurability   *string `xml:"ignore-durability,attr,omitempty"`
+	IgnoreMetadata     *string `xml:"ignore-metadata,attr,omitempty"`
+	IgnoreName         *string `xml:"ignore-name,attr,omitempty"`
+	IgnoreEnchantments *string `xml:"ignore-enchantments,attr,omitempty"`
 	Item               Item    `xml:"item"`
 }
 
@@ -359,10 +359,10 @@ type Holding struct {
 	XMLName xml.Name `xml:"holding"`
 	BaseFilter
 	Amount             *string `xml:"amount,attr,omitempty"`
-	IgnoreDurability   *bool   `xml:"ignore-durability,attr,omitempty"`
-	IgnoreMetadata     *bool   `xml:"ignore-metadata,attr,omitempty"`
-	IgnoreName         *bool   `xml:"ignore-name,attr,omitempty"`
-	IgnoreEnchantments *bool   `xml:"ignore-enchantments,attr,omitempty"`
+	IgnoreDurability   *string `xml:"ignore-durability,attr,omitempty"`
+	IgnoreMetadata     *string `xml:"ignore-metadata,attr,omitempty"`
+	IgnoreName         *string `xml:"ignore-name,attr,omitempty"`
+	IgnoreEnchantments *string `xml:"ignore-enchantments,attr,omitempty"`
 	Item               Item    `xml:"item"`
 }
 
@@ -370,10 +370,10 @@ type Wearing struct {
 	XMLName xml.Name `xml:"wearing"`
 	BaseFilter
 	Amount             *string `xml:"amount,attr,omitempty"`
-	IgnoreDurability   *bool   `xml:"ignore-durability,attr,omitempty"`
-	IgnoreMetadata     *bool   `xml:"ignore-metadata,attr,omitempty"`
-	IgnoreName         *bool   `xml:"ignore-name,attr,omitempty"`
-	IgnoreEnchantments *bool   `xml:"ignore-enchantments,attr,omitempty"`
+	IgnoreDurability   *string `xml:"ignore-durability,attr,omitempty"`
+	IgnoreMetadata     *string `xml:"ignore-metadata,attr,omitempty"`
+	IgnoreName         *string `xml:"ignore-name,attr,omitempty"`
+	IgnoreEnchantments *string `xml:"ignore-enchantments,attr,omitempty"`
 	Item               Item    `xml:"item"`
 }
 
@@ -448,10 +448,10 @@ type Offset struct {
 type Players struct {
 	XMLName xml.Name `xml:"players"`
 	BaseFilter
-	Min          *int       `xml:"min,attr,omitempty"`
-	Max          *int       `xml:"max,attr,omitempty"`
-	Participants *bool      `xml:"participants,attr,omitempty"`
-	Observers    *bool      `xml:"observers,attr,omitempty"`
+	Min          *string    `xml:"min,attr,omitempty"`
+	Max          *string    `xml:"max,attr,omitempty"`
+	Participants *string    `xml:"participants,attr,omitempty"`
+	Observers    *string    `xml:"observers,attr,omitempty"`
 	FilterID     *string    `xml:"filter,attr,omitempty"`
 	Filter       *AnyFilter `xml:",any"`
 }

@@ -40,4 +40,12 @@ func (m *Map) Merge(other Map) {
 		copy := *other.Actions
 		m.Actions = &copy
 	}
+
+	// Variables
+	if m.Variables != nil && other.Variables != nil {
+		m.Variables.Merge(*other.Variables)
+	} else if m.Variables == nil && other.Variables != nil {
+		copy := *other.Variables
+		m.Variables = &copy
+	}
 }
