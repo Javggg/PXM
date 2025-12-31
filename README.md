@@ -29,6 +29,14 @@ Simple merger for PGM XML files.
 </div>
 <div style="display:flex;align-items:center;gap:5px">
     <img src="https://progress-bar.xyz/0" />
+    Replacements
+</div>
+<div style="display:flex;align-items:center;gap:5px">
+    <img src="https://progress-bar.xyz/0" />
+    Constants
+</div>
+<div style="display:flex;align-items:center;gap:5px">
+    <img src="https://progress-bar.xyz/0" />
     Spawns
 </div>
 <div style="display:flex;align-items:center;gap:5px">

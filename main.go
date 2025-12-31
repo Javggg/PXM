@@ -7,6 +7,9 @@ import (
 	"pxm/modules/maproot"
 )
 
+const TargetFolder = "target"
+const BaseXML = "base.xml"
+
 func decodeXml(file *os.File) maproot.Map {
 	var m maproot.Map
 	decoder := xml.NewDecoder(file)
@@ -21,21 +24,25 @@ func decodeXml(file *os.File) maproot.Map {
 }
 
 func main() {
-	targetFolder := "target"
-	files, err := os.ReadDir(targetFolder)
+	files, err := os.ReadDir(TargetFolder)
 
 	if err != nil {
 		panic(err)
 	}
 
 	var xmlFiles []maproot.Map
+	var baseIndex int = -1
 
-	for _, entry := range files {
+	for i, entry := range files {
 		if entry.IsDir() {
 			continue
 		}
 
-		file, err := os.Open(targetFolder + "/" + entry.Name())
+		if entry.Name() == BaseXML {
+			baseIndex = i
+		}
+
+		file, err := os.Open(TargetFolder + "/" + entry.Name())
 		if err != nil {
 			panic(err)
 		}
@@ -48,15 +55,19 @@ func main() {
 
 	}
 
+	if baseIndex == -1 {
+		panic("Base XML not found")
+	}
+
 	for i, xml := range xmlFiles {
-		if i == 0 {
+		if i == baseIndex {
 			continue
 		}
 
-		xmlFiles[0].Merge(xml)
+		xmlFiles[baseIndex].Merge(xml)
 	}
 
-	out, err := xml.MarshalIndent(xmlFiles[0], "  ", "    ") // prefix=" ", indent="    "
+	out, err := xml.MarshalIndent(xmlFiles[baseIndex], "  ", "    ")
 	if err != nil {
 		panic(err)
 	}

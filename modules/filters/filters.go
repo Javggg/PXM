@@ -391,28 +391,28 @@ type Relation struct {
 type Countdown struct {
 	XMLName xml.Name `xml:"countdown"`
 	BaseFilter
-	Duration string     `xml:"duration,attr"`
-	Message  *string    `xml:"message,attr,omitempty"`
-	FilterID *string    `xml:"filter,attr,omitempty"`
-	Filter   *AnyFilter `xml:",any"`
+	Duration     string     `xml:"duration,attr"`
+	Message      *string    `xml:"message,attr,omitempty"`
+	InlineFilter *string    `xml:"filter,attr,omitempty"`
+	Filter       *AnyFilter `xml:",any"`
 }
 
 type After struct {
 	XMLName xml.Name `xml:"after"`
 	BaseFilter
-	Duration string     `xml:"duration,attr"`
-	Message  *string    `xml:"message,attr,omitempty"`
-	FilterID *string    `xml:"filter,attr,omitempty"`
-	Filter   *AnyFilter `xml:",any"`
+	Duration     string     `xml:"duration,attr"`
+	Message      *string    `xml:"message,attr,omitempty"`
+	InlineFilter *string    `xml:"filter,attr,omitempty"`
+	Filter       *AnyFilter `xml:",any"`
 }
 
 type Pulse struct {
 	XMLName xml.Name `xml:"pulse"`
 	BaseFilter
-	Period   *string    `xml:"period,attr,omitempty"`
-	Duration string     `xml:"duration,attr"`
-	FilterID *string    `xml:"filter,attr,omitempty"`
-	Filter   *AnyFilter `xml:",any"`
+	Period       *string    `xml:"period,attr,omitempty"`
+	Duration     string     `xml:"duration,attr"`
+	InlineFilter *string    `xml:"filter,attr,omitempty"`
+	Filter       *AnyFilter `xml:",any"`
 }
 
 // Other

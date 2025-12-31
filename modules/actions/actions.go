@@ -1,0 +1,169 @@
+package actions
+
+import (
+	"encoding/xml"
+	"pxm/modules/filters"
+	"pxm/modules/regions"
+)
+
+type Actions struct {
+	XMLName xml.Name `xml:"actions"`
+	ActionContainer
+}
+
+type BaseAction struct {
+	ID *string `xml:"id,attr,omitempty"`
+}
+
+type ActionContainer struct {
+	Action         []Action         `xml:"action"`
+	SwitchScope    []SwitchScope    `xml:"switch-scope"`
+	Repeat         []Repeat         `xml:"repeat"`
+	Message        []Message        `xml:"message"`
+	Sound          []Sound          `xml:"sound"`
+	Set            []Set            `xml:"set"`
+	KillEntities   []KillEntities   `xml:"kill-entities"`
+	Fill           []Fill           `xml:"fill"`
+	PasteStructure []PasteStructure `xml:"paste-structure"`
+	ReplaceItem    []ReplaceItem    `xml:"replace-item"`
+	EnchantItem    []EnchantItem    `xml:"enchant-item"`
+	TeamAlias      []TeamAlias      `xml:"team-alias"`
+	Velocity       []Velocity       `xml:"velocity"`
+	Teleport       []Teleport       `xml:"teleport"`
+	Weather        []Weather        `xml:"weather"`
+}
+
+type Action struct {
+	XMLName xml.Name `xml:"action"`
+	BaseAction
+	ActionContainer
+	Scope           string  `xml:"scope,attr,omitempty"` // TODO: check
+	Filter          *string `xml:"filter,attr,omitempty"`
+	UntriggerFilter *string `xml:"untrigger-filter,attr,omitempty"`
+	Expose          *bool   `xml:"expose,attr,omitempty"`
+}
+
+type Trigger struct {
+	InlineAction *string                  `xml:"action,attr,omitempty"`
+	Action       *ActionContainer         `xml:"action,omitempty"`
+	InlineFilter *string                  `xml:"filter,attr,omitempty"`
+	Filter       *filters.FilterContainer `xml:"filter,omitempty"`
+	Scope        string                   `xml:"scope,attr"` // TODO: check
+	Observers    *bool                    `xml:"observers,attr,omitempty"`
+}
+
+type SwitchScope struct {
+	XMLName xml.Name `xml:"switch-scope"`
+	ActionContainer
+	Inner     string  `xml:"inner,attr"` // TODO: check
+	Outer     *string `xml:"outer,attr,omitempty"`
+	Observers *bool   `xml:"observers,attr,omitempty"`
+}
+
+type Repeat struct {
+	XMLName xml.Name `xml:"repeat"`
+	Times   string   `xml:"times,attr"`
+	Filter  *string  `xml:"filter,attr,omitempty"`
+}
+
+type Message struct {
+	XMLName   xml.Name `xml:"message"`
+	Text      *string  `xml:"text,attr,omitempty"` // TODO: support as child
+	ActionBar *string  `xml:"actionbar,attr,omitempty"`
+	Title     *string  `xml:"title,attr,omitempty"`
+	Subtitle  *string  `xml:"subtitle,attr,omitempty"`
+	FadeIn    *string  `xml:"fade-in,attr,omitempty"` // TODO: check time
+	Stay      *string  `xml:"stay,attr,omitempty"`
+	FadeOut   *string  `xml:"fade-out,attr,omitempty"`
+}
+
+type Sound struct {
+	XMLName xml.Name `xml:"sound"`
+	Preset  *string  `xml:"preset,attr,omitempty"`
+	Key     *string  `xml:"key,attr,omitempty"`
+	Volume  *float32 `xml:"volume,attr,omitempty"`
+	Pitch   *float32 `xml:"pitch,attr,omitempty"`
+}
+
+type Set struct {
+	XMLName xml.Name `xml:"set"`
+	Var     string   `xml:"var,attr"` // TODO: check
+	Index   *string  `xml:"index,attr,omitempty"`
+	Value   string   `xml:"value,attr"`
+}
+
+type KillEntities struct {
+	XMLName xml.Name `xml:"kill-entities"`
+	Filter  string   `xml:"filter,attr"`
+}
+
+type Fill struct {
+	XMLName      xml.Name                 `xml:"fill"`
+	InlineRegion *string                  `xml:"region,attr,omitempty"`
+	Region       *regions.RegionContainer `xml:"region,omitempty"`
+	Material     string                   `xml:"material"`
+	Filter       *string                  `xml:"filter,attr"`
+	Events       *bool                    `xml:"events,attr,omitempty"`
+	Update       *bool                    `xml:"update,attr,omitempty"`
+}
+
+type PasteStructure struct {
+	XMLName   xml.Name `xml:"paste-structure"`
+	X         string   `xml:"x,attr"`
+	Y         string   `xml:"y,attr"`
+	Z         string   `xml:"z,attr"`
+	Structure string   `xml:"structure,attr"`
+	Update    *bool    `xml:"update,attr,omitempty"`
+}
+
+type Item struct {
+	// TODO: import from real kit item
+}
+
+type ReplaceItem struct {
+	XMLName        xml.Name `xml:"replace-item"`
+	Find           Item     `xml:"find"`
+	Replace        Item     `xml:"replace"`
+	KeepAmount     *bool    `xml:"keep-amount,attr,omitempty"`
+	KeepEnchants   *bool    `xml:"keep-enchants,attr,omitempty"`
+	IgnoreMetadata *bool    `xml:"ignore-metadata,attr,omitempty"`
+	Amount         *string  `xml:"amount,attr,omitempty"`
+}
+
+type EnchantItem struct {
+	XMLName        xml.Name `xml:"enchant-item"`
+	Enchantment    string   `xml:"enchantment,attr"`
+	Level          string   `xml:"level,attr"`
+	IgnoreMetadata bool     `xml:"ignore-metadata,attr,omitempty"`
+}
+
+// TODO: type TakePayment struct {}
+
+type TeamAlias struct {
+	XMLName xml.Name `xml:"team-alias"`
+	Team    *string  `xml:"team,attr,omitempty"`
+	Alias   string   `xml:"alias,attr"`
+}
+
+type Velocity struct {
+	XMLName xml.Name `xml:"velocity"`
+	X       string   `xml:"x,attr"`
+	Y       string   `xml:"y,attr"`
+	Z       string   `xml:"z,attr"`
+	Yaw     *string  `xml:"yaw,attr,omitempty"`
+	Pitch   *string  `xml:"pitch,attr,omitempty"`
+}
+
+type Teleport struct {
+	XMLName xml.Name `xml:"teleport"`
+	X       string   `xml:"x,attr"`
+	Y       string   `xml:"y,attr"`
+	Z       string   `xml:"z,attr"`
+	Yaw     *string  `xml:"yaw,attr,omitempty"`
+	Pitch   *string  `xml:"pitch,attr,omitempty"`
+}
+
+type Weather struct {
+	XMLName xml.Name `xml:"weather"`
+	State   string   `xml:"state,attr"` // TODO: check
+}
