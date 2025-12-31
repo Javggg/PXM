@@ -4,6 +4,7 @@ import (
 	"encoding/xml"
 	"pxm/modules/actions"
 	"pxm/modules/authors"
+	"pxm/modules/constants"
 	"pxm/modules/filters"
 	"pxm/modules/regions"
 	"pxm/modules/variables"
@@ -21,4 +22,5 @@ type Map struct {
 	Filters          *filters.Filters      `xml:"filters,omitempty"`
 	Actions          *actions.Actions      `xml:"actions,omitempty"`
 	Variables        *variables.Variables  `xml:"variables,omitempty"`
+	Constants        *constants.Constants  `xml:"constants,omitempty"`
 }

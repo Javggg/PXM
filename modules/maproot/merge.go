@@ -1,6 +1,14 @@
 package maproot
 
 func (m *Map) Merge(other Map) {
+	// Constants
+	if m.Constants != nil && other.Constants != nil {
+		m.Constants.Merge(*other.Constants)
+	} else if m.Constants == nil && other.Constants != nil {
+		copy := *other.Constants
+		m.Constants = &copy
+	}
+
 	// Authors
 	if m.Authors != nil && other.Authors != nil {
 		m.Authors.Merge(*other.Authors)
@@ -33,19 +41,19 @@ func (m *Map) Merge(other Map) {
 		m.Filters = &copy
 	}
 
-	// Actions
-	if m.Actions != nil && other.Actions != nil {
-		m.Actions.Merge(*other.Actions)
-	} else if m.Actions == nil && other.Actions != nil {
-		copy := *other.Actions
-		m.Actions = &copy
-	}
-
 	// Variables
 	if m.Variables != nil && other.Variables != nil {
 		m.Variables.Merge(*other.Variables)
 	} else if m.Variables == nil && other.Variables != nil {
 		copy := *other.Variables
 		m.Variables = &copy
+	}
+
+	// Actions
+	if m.Actions != nil && other.Actions != nil {
+		m.Actions.Merge(*other.Actions)
+	} else if m.Actions == nil && other.Actions != nil {
+		copy := *other.Actions
+		m.Actions = &copy
 	}
 }

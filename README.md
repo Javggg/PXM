@@ -24,16 +24,16 @@ Simple merger for PGM XML files.
     Actions
 </div>
 <div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
+    <img src="https://progress-bar.xyz/100" />
     Variables
 </div>
 <div style="display:flex;align-items:center;gap:5px">
     <img src="https://progress-bar.xyz/0" />
-    Replacements
+    Constants
 </div>
 <div style="display:flex;align-items:center;gap:5px">
     <img src="https://progress-bar.xyz/0" />
-    Constants
+    Replacements
 </div>
 <div style="display:flex;align-items:center;gap:5px">
     <img src="https://progress-bar.xyz/0" />
