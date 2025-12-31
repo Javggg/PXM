@@ -16,11 +16,11 @@ type Map struct {
 	MinServerVersion *string               `xml:"min-server-version,attr"`
 	MaxServerVersion *string               `xml:"max-server-version,attr"`
 	Internal         *string               `xml:"internal,attr"`
+	Constants        *constants.Constants  `xml:"constants,omitempty"`
 	Authors          *authors.Authors      `xml:"authors,omitempty"`
 	Contributors     *authors.Contributors `xml:"contributors,omitempty"`
 	Regions          *regions.Regions      `xml:"regions,omitempty"`
 	Filters          *filters.Filters      `xml:"filters,omitempty"`
-	Actions          *actions.Actions      `xml:"actions,omitempty"`
 	Variables        *variables.Variables  `xml:"variables,omitempty"`
-	Constants        *constants.Constants  `xml:"constants,omitempty"`
+	Actions          *actions.Actions      `xml:"actions,omitempty"`
 }
