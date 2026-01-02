@@ -81,6 +81,14 @@ func (m *Map) Merge(other Map) {
 		m.Flags = &copy
 	}
 
+	// Destroyables
+	if m.Destroyables != nil && other.Destroyables != nil {
+		m.Destroyables.Merge(*other.Destroyables)
+	} else if m.Destroyables == nil && other.Destroyables != nil {
+		copy := *other.Destroyables
+		m.Destroyables = &copy
+	}
+
 	// Regions
 	if m.Regions != nil && other.Regions != nil {
 		m.Regions.Merge(*other.Regions)
