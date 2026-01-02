@@ -104,10 +104,6 @@ type FilterRef struct {
 	RefID   string   `xml:"id,attr"`
 }
 
-type AnyFilter struct { // TODO: custom unmarshaller for this crap
-	FilterElement
-}
-
 // Generic
 
 type Always struct {
@@ -404,28 +400,28 @@ type Relation struct {
 type Countdown struct {
 	XMLName xml.Name `xml:"countdown"`
 	BaseFilter
-	Duration     string     `xml:"duration,attr"`
-	Message      *string    `xml:"message,attr,omitempty"`
-	InlineFilter *string    `xml:"filter,attr,omitempty"`
-	Filter       *AnyFilter `xml:",any"`
+	Duration     string  `xml:"duration,attr"`
+	Message      *string `xml:"message,attr,omitempty"`
+	InlineFilter *string `xml:"filter,attr,omitempty"`
+	FilterContainer
 }
 
 type After struct {
 	XMLName xml.Name `xml:"after"`
 	BaseFilter
-	Duration     string     `xml:"duration,attr"`
-	Message      *string    `xml:"message,attr,omitempty"`
-	InlineFilter *string    `xml:"filter,attr,omitempty"`
-	Filter       *AnyFilter `xml:",any"`
+	Duration     string  `xml:"duration,attr"`
+	Message      *string `xml:"message,attr,omitempty"`
+	InlineFilter *string `xml:"filter,attr,omitempty"`
+	FilterContainer
 }
 
 type Pulse struct {
 	XMLName xml.Name `xml:"pulse"`
 	BaseFilter
-	Period       *string    `xml:"period,attr,omitempty"`
-	Duration     string     `xml:"duration,attr"`
-	InlineFilter *string    `xml:"filter,attr,omitempty"`
-	Filter       *AnyFilter `xml:",any"`
+	Period       *string `xml:"period,attr,omitempty"`
+	Duration     string  `xml:"duration,attr"`
+	InlineFilter *string `xml:"filter,attr,omitempty"`
+	FilterContainer
 }
 
 // Other
@@ -448,12 +444,12 @@ type Offset struct {
 type Players struct {
 	XMLName xml.Name `xml:"players"`
 	BaseFilter
-	Min          *string    `xml:"min,attr,omitempty"`
-	Max          *string    `xml:"max,attr,omitempty"`
-	Participants *string    `xml:"participants,attr,omitempty"`
-	Observers    *string    `xml:"observers,attr,omitempty"`
-	FilterID     *string    `xml:"filter,attr,omitempty"`
-	Filter       *AnyFilter `xml:",any"`
+	Min          *string `xml:"min,attr,omitempty"`
+	Max          *string `xml:"max,attr,omitempty"`
+	Participants *string `xml:"participants,attr,omitempty"`
+	Observers    *string `xml:"observers,attr,omitempty"`
+	FilterID     *string `xml:"filter,attr,omitempty"`
+	FilterContainer
 }
 
 // Modifiers
