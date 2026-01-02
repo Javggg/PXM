@@ -6,6 +6,7 @@ import (
 	"pxm/modules/authors"
 	"pxm/modules/constants"
 	"pxm/modules/filters"
+	"pxm/modules/flags"
 	"pxm/modules/killrewards"
 	"pxm/modules/kits"
 	"pxm/modules/portals"
@@ -16,6 +17,7 @@ import (
 	"pxm/modules/structures"
 	"pxm/modules/teams"
 	"pxm/modules/variables"
+	"pxm/modules/wools"
 )
 
 type Map struct {
@@ -35,8 +37,8 @@ type Map struct {
 	Respawns   *spawns.Respawns       `xml:"respawns,omitempty"`
 	Structures *structures.Structures `xml:"structures,omitempty"`
 	// WorldBorders
-	// Wools
-	// Flags
+	Wools *wools.Wools `xml:"wools,omitempty"`
+	Flags *flags.Flags `xml:"flags,omitempty"`
 	// ControlPoints
 	// Destroyables
 	// Cores

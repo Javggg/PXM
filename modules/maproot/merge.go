@@ -65,6 +65,22 @@ func (m *Map) Merge(other Map) {
 		m.Structures = &copy
 	}
 
+	// Wools
+	if m.Wools != nil && other.Wools != nil {
+		m.Wools.Merge(*other.Wools)
+	} else if m.Wools == nil && other.Wools != nil {
+		copy := *other.Wools
+		m.Wools = &copy
+	}
+
+	// Flags
+	if m.Flags != nil && other.Flags != nil {
+		m.Flags.Merge(*other.Flags)
+	} else if m.Flags == nil && other.Flags != nil {
+		copy := *other.Flags
+		m.Flags = &copy
+	}
+
 	// Regions
 	if m.Regions != nil && other.Regions != nil {
 		m.Regions.Merge(*other.Regions)

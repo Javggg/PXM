@@ -64,15 +64,11 @@ Simple merger for PGM XML files.
     Teams
 </div>
 <div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Renewables
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
+    <img src="https://progress-bar.xyz/100" />
     Wools
 </div>
 <div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
+    <img src="https://progress-bar.xyz/100" />
     Flags
 </div>
 <div style="display:flex;align-items:center;gap:5px">
@@ -102,6 +98,10 @@ Simple merger for PGM XML files.
 <div style="display:flex;align-items:center;gap:5px">
     <img src="https://progress-bar.xyz/0" />
     Consumables
+</div>
+<div style="display:flex;align-items:center;gap:5px">
+    <img src="https://progress-bar.xyz/0" />
+    Renewables
 </div>
 <div style="display:flex;align-items:center;gap:5px">
     <img src="https://progress-bar.xyz/0" />

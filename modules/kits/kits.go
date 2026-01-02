@@ -30,7 +30,8 @@ type Kit struct {
 	Chestplate         *Armor              `xml:"chestplate,omitempty"`
 	Leggings           *Armor              `xml:"leggings,omitempty"`
 	Boots              *Armor              `xml:"boots,omitempty"`
-	Effect             []Effect            `xml:"effect"`
+	Effects            []Effect            `xml:"effect"`
+	Potions            []Effect            `xml:"potion"`
 	Health             *HealthOrFoodLevel  `xml:"health,omitempty"`
 	MaxHealth          *HealthOrFoodLevel  `xml:"max-health,omitempty"`
 	Saturation         *HealthOrFoodLevel  `xml:"saturation,omitempty"`
@@ -75,11 +76,10 @@ type TeamSwitch struct {
 }
 
 type Effect struct {
-	XMLName   xml.Name `xml:"effect"`
-	Duration  *string  `xml:"duration,attr,omitempty"`
-	Amplifier *string  `xml:"amplifier,attr,omitempty"`
-	Ambient   *string  `xml:"ambient,attr,omitempty"`
-	Value     string   `xml:",innerxml"`
+	Duration  *string `xml:"duration,attr,omitempty"`
+	Amplifier *string `xml:"amplifier,attr,omitempty"`
+	Ambient   *string `xml:"ambient,attr,omitempty"`
+	Value     string  `xml:",innerxml"`
 }
 
 type Attribute struct {
