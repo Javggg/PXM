@@ -65,6 +65,14 @@ func (m *Map) Merge(other Map) {
 		m.Portals = &copy
 	}
 
+	// Spawners
+	if m.Spawners != nil && other.Spawners != nil {
+		m.Spawners.Merge(*other.Spawners)
+	} else if m.Spawners == nil && other.Spawners != nil {
+		copy := *other.Spawners
+		m.Spawners = &copy
+	}
+
 	// Filters
 	if m.Filters != nil && other.Filters != nil {
 		m.Filters.Merge(*other.Filters)

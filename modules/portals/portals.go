@@ -1,11 +1,13 @@
 package portals
 
 import (
+	"encoding/xml"
 	"pxm/modules/filters"
 	"pxm/modules/regions"
 )
 
 type Portals struct {
+	XMLName       xml.Name `xml:"portals"`
 	Filter        *string  `xml:"filter,attr,omitempty"`
 	Sound         *string  `xml:"sound,attr,omitempty"`
 	Protect       *string  `xml:"protect,attr,omitempty"`
@@ -18,6 +20,7 @@ type Portals struct {
 }
 
 type Portal struct {
+	XMLName           xml.Name                 `xml:"portal"`
 	X                 *string                  `xml:"x,attr,omitempty"`
 	Y                 *string                  `xml:"y,attr,omitempty"`
 	Z                 *string                  `xml:"z,attr,omitempty"`
