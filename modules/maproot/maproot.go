@@ -6,6 +6,7 @@ import (
 	"pxm/modules/authors"
 	"pxm/modules/constants"
 	"pxm/modules/filters"
+	"pxm/modules/killrewards"
 	"pxm/modules/kits"
 	"pxm/modules/portals"
 	"pxm/modules/regions"
@@ -50,7 +51,7 @@ type Map struct {
 	// Projectiles
 	// Consumables
 	// Renewables
-	// KillRewards
+	KillRewards *killrewards.KillRewards `xml:"kill-rewards,omitempty"`
 	// ItemRemove
 	// ItemKeep
 	// ArmorKeep

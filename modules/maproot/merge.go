@@ -89,6 +89,14 @@ func (m *Map) Merge(other Map) {
 		m.Variables = &copy
 	}
 
+	// Actions
+	if m.Actions != nil && other.Actions != nil {
+		m.Actions.Merge(*other.Actions)
+	} else if m.Actions == nil && other.Actions != nil {
+		copy := *other.Actions
+		m.Actions = &copy
+	}
+
 	// Replacements
 	if m.Replacements != nil && other.Replacements != nil {
 		m.Replacements.Merge(*other.Replacements)
@@ -97,11 +105,11 @@ func (m *Map) Merge(other Map) {
 		m.Replacements = &copy
 	}
 
-	// Actions
-	if m.Actions != nil && other.Actions != nil {
-		m.Actions.Merge(*other.Actions)
-	} else if m.Actions == nil && other.Actions != nil {
-		copy := *other.Actions
-		m.Actions = &copy
+	// KillRewards
+	if m.KillRewards != nil && other.KillRewards != nil {
+		m.KillRewards.Merge(*other.KillRewards)
+	} else if m.KillRewards == nil && other.KillRewards != nil {
+		copy := *other.KillRewards
+		m.KillRewards = &copy
 	}
 }

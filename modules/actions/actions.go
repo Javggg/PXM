@@ -16,7 +16,6 @@ type BaseAction struct {
 }
 
 type Action struct {
-	XMLName xml.Name `xml:"action"`
 	BaseAction
 	Scope           string  `xml:"scope,attr,omitempty"` // TODO: check
 	Filter          *string `xml:"filter,attr,omitempty"`
