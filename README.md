@@ -76,12 +76,12 @@ Simple merger for PGM XML files.
     Destroyables
 </div>
 <div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Control points
+    <img src="https://progress-bar.xyz/100" />
+    Cores
 </div>
 <div style="display:flex;align-items:center;gap:5px">
     <img src="https://progress-bar.xyz/0" />
-    Cores
+    Control points
 </div>
 <div style="display:flex;align-items:center;gap:5px">
     <img src="https://progress-bar.xyz/0" />

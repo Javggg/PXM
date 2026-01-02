@@ -5,6 +5,7 @@ import (
 	"pxm/modules/actions"
 	"pxm/modules/authors"
 	"pxm/modules/constants"
+	"pxm/modules/cores"
 	"pxm/modules/destroyables"
 	"pxm/modules/filters"
 	"pxm/modules/flags"
@@ -42,7 +43,7 @@ type Map struct {
 	Flags *flags.Flags `xml:"flags,omitempty"`
 	// ControlPoints
 	Destroyables *destroyables.Destroyables `xml:"destroyables,omitempty"`
-	// Cores
+	Cores        *cores.Cores               `xml:"cores,omitempty"`
 	// Modes
 	// Payloads
 	Portals      *portals.Portals           `xml:"portals,omitempty"`
