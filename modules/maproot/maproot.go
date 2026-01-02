@@ -13,6 +13,7 @@ import (
 	"pxm/modules/replacements"
 	"pxm/modules/spawners"
 	"pxm/modules/spawns"
+	"pxm/modules/structures"
 	"pxm/modules/variables"
 )
 
@@ -28,10 +29,10 @@ type Map struct {
 	// Rules
 	// Broadcasts
 	// Teams
-	Kits     *kits.Kits       `xml:"kits,omitempty"`
-	Spawns   *spawns.Spawns   `xml:"spawns,omitempty"`
-	Respawns *spawns.Respawns `xml:"respawns,omitempty"`
-	// Structures
+	Kits       *kits.Kits             `xml:"kits,omitempty"`
+	Spawns     *spawns.Spawns         `xml:"spawns,omitempty"`
+	Respawns   *spawns.Respawns       `xml:"respawns,omitempty"`
+	Structures *structures.Structures `xml:"structures,omitempty"`
 	// WorldBorders
 	// Wools
 	// Flags

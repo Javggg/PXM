@@ -49,6 +49,14 @@ func (m *Map) Merge(other Map) {
 		m.Respawns = &copy
 	}
 
+	// Structures
+	if m.Structures != nil && other.Structures != nil {
+		m.Structures.Merge(*other.Structures)
+	} else if m.Structures == nil && other.Structures != nil {
+		copy := *other.Structures
+		m.Structures = &copy
+	}
+
 	// Regions
 	if m.Regions != nil && other.Regions != nil {
 		m.Regions.Merge(*other.Regions)
