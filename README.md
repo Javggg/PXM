@@ -56,11 +56,11 @@ Simple merger for PGM XML files.
     Kill rewards
 </div>
 <div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
+    <img src="https://progress-bar.xyz/100" />
     Structures
 </div>
 <div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
+    <img src="https://progress-bar.xyz/100" />
     Teams
 </div>
 <div style="display:flex;align-items:center;gap:5px">

@@ -25,6 +25,14 @@ func (m *Map) Merge(other Map) {
 		m.Contributors = &copy
 	}
 
+	// Teams
+	if m.Teams != nil && other.Teams != nil {
+		m.Teams.Merge(*other.Teams)
+	} else if m.Teams == nil && other.Teams != nil {
+		copy := *other.Teams
+		m.Teams = &copy
+	}
+
 	// Kits
 	if m.Kits != nil && other.Kits != nil {
 		m.Kits.Merge(*other.Kits)

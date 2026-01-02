@@ -14,6 +14,7 @@ import (
 	"pxm/modules/spawners"
 	"pxm/modules/spawns"
 	"pxm/modules/structures"
+	"pxm/modules/teams"
 	"pxm/modules/variables"
 )
 
@@ -28,7 +29,7 @@ type Map struct {
 	Contributors     *authors.Contributors `xml:"contributors,omitempty"`
 	// Rules
 	// Broadcasts
-	// Teams
+	Teams      *teams.Teams           `xml:"teams,omitempty"`
 	Kits       *kits.Kits             `xml:"kits,omitempty"`
 	Spawns     *spawns.Spawns         `xml:"spawns,omitempty"`
 	Respawns   *spawns.Respawns       `xml:"respawns,omitempty"`
