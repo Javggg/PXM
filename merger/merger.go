@@ -2,7 +2,6 @@ package merger
 
 import (
 	"encoding/xml"
-	"fmt"
 	"os"
 	"pxm/modules/maproot"
 )
@@ -17,8 +16,6 @@ func decodeXml(file *os.File) maproot.Map {
 	if err := decoder.Decode(&m); err != nil {
 		panic(err)
 	}
-
-	fmt.Printf("Parsed map from %s: %+v\n", file.Name(), m)
 
 	return m
 }
@@ -71,8 +68,6 @@ func Merge(path string) {
 	if err != nil {
 		panic(err)
 	}
-
-	fmt.Print(string(out))
 
 	err = os.WriteFile(OutName, []byte(out), 0644)
 	if err != nil {

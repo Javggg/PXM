@@ -22,10 +22,10 @@ func Watch(path string) {
 				if !ok {
 					return
 				}
-				log.Println("event:", event)
+				// log.Println("event:", event)
 				if event.Has(fsnotify.Write) {
 					merger.Merge(path)
-					log.Println("modified file:", event.Name)
+					// log.Println("modified file:", event.Name)
 				}
 			case err, ok := <-watcher.Errors:
 				if !ok {
