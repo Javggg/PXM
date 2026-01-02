@@ -57,6 +57,14 @@ func (m *Map) Merge(other Map) {
 		m.Regions = &copy
 	}
 
+	// Portals
+	if m.Portals != nil && other.Portals != nil {
+		m.Portals.Merge(*other.Portals)
+	} else if m.Portals == nil && other.Portals != nil {
+		copy := *other.Portals
+		m.Portals = &copy
+	}
+
 	// Filters
 	if m.Filters != nil && other.Filters != nil {
 		m.Filters.Merge(*other.Filters)

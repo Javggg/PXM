@@ -7,6 +7,7 @@ import (
 	"pxm/modules/constants"
 	"pxm/modules/filters"
 	"pxm/modules/kits"
+	"pxm/modules/portals"
 	"pxm/modules/regions"
 	"pxm/modules/replacements"
 	"pxm/modules/spawns"
@@ -26,6 +27,7 @@ type Map struct {
 	Spawns           *spawns.Spawns             `xml:"spawns,omitempty"`
 	Respawns         *spawns.Respawns           `xml:"respawns,omitempty"`
 	Regions          *regions.Regions           `xml:"regions,omitempty"`
+	Portals          *portals.Portals           `xml:"portals,omitempty"`
 	Filters          *filters.Filters           `xml:"filters,omitempty"`
 	Variables        *variables.Variables       `xml:"variables,omitempty"`
 	Replacements     *replacements.Replacements `xml:"replacements,omitempty"`
