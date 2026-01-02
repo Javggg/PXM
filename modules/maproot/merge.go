@@ -25,6 +25,30 @@ func (m *Map) Merge(other Map) {
 		m.Contributors = &copy
 	}
 
+	// Kits
+	if m.Kits != nil && other.Kits != nil {
+		m.Kits.Merge(*other.Kits)
+	} else if m.Kits == nil && other.Kits != nil {
+		copy := *other.Kits
+		m.Kits = &copy
+	}
+
+	// Spawns
+	if m.Spawns != nil && other.Spawns != nil {
+		m.Spawns.Merge(*other.Spawns)
+	} else if m.Spawns == nil && other.Spawns != nil {
+		copy := *other.Spawns
+		m.Spawns = &copy
+	}
+
+	// Respawns
+	if m.Respawns != nil && other.Respawns != nil {
+		m.Respawns.Merge(*other.Respawns)
+	} else if m.Respawns == nil && other.Respawns != nil {
+		copy := *other.Respawns
+		m.Respawns = &copy
+	}
+
 	// Regions
 	if m.Regions != nil && other.Regions != nil {
 		m.Regions.Merge(*other.Regions)

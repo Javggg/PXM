@@ -6,8 +6,10 @@ import (
 	"pxm/modules/authors"
 	"pxm/modules/constants"
 	"pxm/modules/filters"
+	"pxm/modules/kits"
 	"pxm/modules/regions"
 	"pxm/modules/replacements"
+	"pxm/modules/spawns"
 	"pxm/modules/variables"
 )
 
@@ -20,6 +22,9 @@ type Map struct {
 	Constants        *constants.Constants       `xml:"constants,omitempty"`
 	Authors          *authors.Authors           `xml:"authors,omitempty"`
 	Contributors     *authors.Contributors      `xml:"contributors,omitempty"`
+	Kits             *kits.Kits                 `xml:"kits,omitempty"`
+	Spawns           *spawns.Spawns             `xml:"spawns,omitempty"`
+	Respawns         *spawns.Respawns           `xml:"respawns,omitempty"`
 	Regions          *regions.Regions           `xml:"regions,omitempty"`
 	Filters          *filters.Filters           `xml:"filters,omitempty"`
 	Variables        *variables.Variables       `xml:"variables,omitempty"`
