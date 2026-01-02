@@ -2,12 +2,15 @@ package watcher
 
 import (
 	"log"
+	"os"
+	"path/filepath"
 	"pxm/merger"
 
+	"github.com/fatih/color"
 	"github.com/fsnotify/fsnotify"
 )
 
-func Watch(path string) {
+func Watch(folder string, base string, out string) {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
 		panic(err)
@@ -22,10 +25,10 @@ func Watch(path string) {
 				if !ok {
 					return
 				}
-				// log.Println("event:", event)
 				if event.Has(fsnotify.Write) {
-					merger.Merge(path)
-					// log.Println("modified file:", event.Name)
+					merger.Merge(folder, base, out)
+					color.Green("Merging changes detected in '%s'", filepath.Base(event.Name))
+
 				}
 			case err, ok := <-watcher.Errors:
 				if !ok {
@@ -36,10 +39,15 @@ func Watch(path string) {
 		}
 	}()
 
-	err = watcher.Add(path)
+	err = watcher.Add(folder)
 	if err != nil {
-		log.Fatal(err)
+		color.Red("Folder '%s' not found", folder)
+		color.Yellow("Create the folder '%s' and try again.", folder)
+		color.Yellow("Or specify a different folder using the '--folder' flag.")
+		os.Exit(1)
 	}
+
+	color.Cyan("Listening for changes...")
 
 	<-make(chan struct{})
 }

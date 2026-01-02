@@ -6,9 +6,6 @@ import (
 	"pxm/modules/maproot"
 )
 
-var BaseXML = "base.xml"
-var OutName = "map.xml"
-
 func decodeXml(file *os.File) maproot.Map {
 	var m maproot.Map
 	decoder := xml.NewDecoder(file)
@@ -20,8 +17,8 @@ func decodeXml(file *os.File) maproot.Map {
 	return m
 }
 
-func Merge(path string) {
-	files, err := os.ReadDir(path)
+func Merge(folder string, base string, out string) {
+	files, err := os.ReadDir(folder)
 
 	if err != nil {
 		panic(err)
@@ -35,11 +32,11 @@ func Merge(path string) {
 			continue
 		}
 
-		if entry.Name() == BaseXML {
+		if entry.Name() == base {
 			baseIndex = i
 		}
 
-		file, err := os.Open(path + "/" + entry.Name())
+		file, err := os.Open(folder + "/" + entry.Name())
 		if err != nil {
 			panic(err)
 		}
@@ -64,12 +61,12 @@ func Merge(path string) {
 		xmlFiles[baseIndex].Merge(xml)
 	}
 
-	out, err := xml.MarshalIndent(xmlFiles[baseIndex], "  ", "    ")
+	final, err := xml.MarshalIndent(xmlFiles[baseIndex], "  ", "    ")
 	if err != nil {
 		panic(err)
 	}
 
-	err = os.WriteFile(OutName, []byte(out), 0644)
+	err = os.WriteFile(out, []byte(final), 0644)
 	if err != nil {
 		panic(err)
 	}
