@@ -17,6 +17,7 @@ type Spawn struct {
 	Team            *string   `xml:"team,attr"`
 	InlineRegion    *string   `xml:"region,attr,omitempty"`
 	Regions         []Regions `xml:"regions"`
+	Region          []Regions `xml:"region"`
 	Safe            *string   `xml:"safe,attr,omitempty"`
 	Sequential      *string   `xml:"sequential,attr,omitempty"`
 	Spread          *string   `xml:"spread,attr,omitempty"`
@@ -29,9 +30,8 @@ type Spawn struct {
 }
 
 type Regions struct {
-	XMLName xml.Name `xml:"regions"`
-	Angle   *string  `xml:"angle,attr,omitempty"`
-	Yaw     *string  `xml:"yaw,attr,omitempty"`
-	Pitch   *string  `xml:"pitch,attr,omitempty"`
+	Angle *string `xml:"angle,attr,omitempty"`
+	Yaw   *string `xml:"yaw,attr,omitempty"`
+	Pitch *string `xml:"pitch,attr,omitempty"`
 	regions.RegionContainer
 }
