@@ -7,6 +7,7 @@ import (
 	"pxm/modules/consumables"
 	"pxm/modules/controlpoints"
 	"pxm/modules/cores"
+	"pxm/modules/damage"
 	"pxm/modules/destroyables"
 	"pxm/modules/filters"
 	"pxm/modules/flags"
@@ -44,6 +45,7 @@ type Map struct {
 	// Rules
 	// Broadcasts
 	Teams         *teams.Teams                 `xml:"teams,omitempty"`
+	Players       *teams.Players               `xml:"players,omitempty"`
 	Kits          *kits.Kits                   `xml:"kits,omitempty"`
 	Spawns        *spawns.Spawns               `xml:"spawns,omitempty"`
 	Respawns      *spawns.Respawns             `xml:"respawns,omitempty"`
@@ -73,4 +75,10 @@ type Map struct {
 	ItemKeep            *repairremovekeep.ItemKeep       `xml:"itemkeep,omitempty"`
 	ArmorKeep           *repairremovekeep.ArmorKeep      `xml:"armorkeep,omitempty"`
 	ToolRepair          *repairremovekeep.ToolRepair     `xml:"toolrepair,omitempty"`
+	Damage              *damage.Damage                   `xml:"damage,omitempty"`
+	DisableDamage       *damage.DisableDamage            `xml:"disabledamage,omitempty"`
+	FriendlyFire        *damage.FriendlyFire             `xml:"friendlyfire,omitempty"`
+	FriendlyFireRefund  *damage.FriendlyFireRefund       `xml:"friendlyfirerefund,omitempty"`
+	Difficulty          *damage.Difficulty               `xml:"difficulty,omitempty"`
+	Hunger              *damage.Hunger                   `xml:"hunger,omitempty"`
 }

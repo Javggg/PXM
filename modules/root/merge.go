@@ -250,4 +250,12 @@ func (m *Map) Merge(other Map) {
 		copy := *other.ToolRepair
 		m.ToolRepair = &copy
 	}
+
+	// DisableDamage
+	if m.DisableDamage != nil && other.DisableDamage != nil {
+		m.DisableDamage.Merge(*other.DisableDamage)
+	} else if m.DisableDamage == nil && other.DisableDamage != nil {
+		copy := *other.DisableDamage
+		m.DisableDamage = &copy
+	}
 }

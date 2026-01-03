@@ -71,6 +71,7 @@ type FilterContainer struct {
 	Random []Random `xml:"random"`
 
 	Relation []Relation `xml:"relation"`
+	Damager  []Damager  `xml:"damager"`
 
 	Countdown []Countdown `xml:"countdown"`
 	After     []After     `xml:"after"`
@@ -393,6 +394,12 @@ type Relation struct {
 	XMLName xml.Name `xml:"relation"`
 	BaseFilter
 	RelationType string `xml:",chardata"` // TODO: check for relation
+}
+
+type Damager struct {
+	XMLName xml.Name `xml:"damager"`
+	BaseFilter
+	Entity Entity `xml:"entity"`
 }
 
 // Time

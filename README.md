@@ -37,5 +37,4 @@ PXM is a CLI tool for merging **[PGM](https://github.com/PGMDev/PGM)** XML files
 - Score
 - Time
 - Rage
-- Damage
 - TNT
