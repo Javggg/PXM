@@ -1,4 +1,4 @@
-package authors
+package info
 
 func (a *Authors) Merge(other Authors) {
 	a.Authors = append(a.Authors, other.Authors...)

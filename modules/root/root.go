@@ -3,7 +3,6 @@ package root
 import (
 	"encoding/xml"
 	"pxm/modules/actions"
-	"pxm/modules/authors"
 	"pxm/modules/constants"
 	"pxm/modules/consumables"
 	"pxm/modules/controlpoints"
@@ -11,6 +10,7 @@ import (
 	"pxm/modules/destroyables"
 	"pxm/modules/filters"
 	"pxm/modules/flags"
+	"pxm/modules/info"
 	"pxm/modules/killrewards"
 	"pxm/modules/kits"
 	"pxm/modules/modes"
@@ -30,14 +30,17 @@ import (
 )
 
 type Map struct {
-	XMLName          xml.Name              `xml:"map"`
-	Proto            string                `xml:"proto,attr"`
-	MinServerVersion *string               `xml:"min-server-version,attr"`
-	MaxServerVersion *string               `xml:"max-server-version,attr"`
-	Internal         *string               `xml:"internal,attr"`
-	Constants        *constants.Constants  `xml:"constants,omitempty"`
-	Authors          *authors.Authors      `xml:"authors,omitempty"`
-	Contributors     *authors.Contributors `xml:"contributors,omitempty"`
+	XMLName          xml.Name `xml:"map"`
+	Proto            *string  `xml:"proto,attr"`
+	MinServerVersion *string  `xml:"min-server-version,attr"`
+	MaxServerVersion *string  `xml:"max-server-version,attr"`
+	Internal         *string  `xml:"internal,attr"`
+	info.Info
+	Gamemodes    []string             `xml:"gamemode"`
+	Includes     []info.Include       `xml:"include"`
+	Authors      *info.Authors        `xml:"authors,omitempty"`
+	Contributors *info.Contributors   `xml:"contributors,omitempty"`
+	Constants    *constants.Constants `xml:"constants,omitempty"`
 	// Rules
 	// Broadcasts
 	Teams         *teams.Teams                 `xml:"teams,omitempty"`

@@ -1,14 +1,6 @@
 package root
 
 func (m *Map) Merge(other Map) {
-	// Constants
-	if m.Constants != nil && other.Constants != nil {
-		m.Constants.Merge(*other.Constants)
-	} else if m.Constants == nil && other.Constants != nil {
-		copy := *other.Constants
-		m.Constants = &copy
-	}
-
 	// Authors
 	if m.Authors != nil && other.Authors != nil {
 		m.Authors.Merge(*other.Authors)
@@ -23,6 +15,24 @@ func (m *Map) Merge(other Map) {
 	} else if m.Contributors == nil && other.Contributors != nil {
 		copy := *other.Contributors
 		m.Contributors = &copy
+	}
+
+	// Gamemodes
+	if len(other.Gamemodes) > 0 {
+		m.Gamemodes = append(m.Gamemodes, other.Gamemodes...)
+	}
+
+	// Includes
+	if len(other.Includes) > 0 {
+		m.Includes = append(m.Includes, other.Includes...)
+	}
+
+	// Constants
+	if m.Constants != nil && other.Constants != nil {
+		m.Constants.Merge(*other.Constants)
+	} else if m.Constants == nil && other.Constants != nil {
+		copy := *other.Constants
+		m.Constants = &copy
 	}
 
 	// Teams
