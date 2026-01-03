@@ -2,6 +2,7 @@ package regions
 
 func (r *Regions) Merge(other Regions) {
 	r.RegionContainer.Merge(other.RegionContainer)
+	r.Applies = append(r.Applies, other.Applies...)
 }
 
 func (rc *RegionContainer) Merge(other RegionContainer) {

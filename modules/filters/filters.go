@@ -2,7 +2,6 @@ package filters
 
 import (
 	"encoding/xml"
-	"pxm/modules/regions"
 )
 
 type FilterElement any
@@ -187,7 +186,7 @@ type Blocks struct {
 	XMLName xml.Name `xml:"blocks"`
 	BaseFilter
 
-	Region regions.RegionRef `xml:"region,attr"`
+	Region string `xml:"region,attr"`
 	FilterContainer
 }
 

@@ -5,6 +5,7 @@ import "encoding/xml"
 type Regions struct {
 	XMLName xml.Name `xml:"regions"`
 	RegionContainer
+	Applies []Apply `xml:"apply"`
 }
 
 type BaseRegion struct {
