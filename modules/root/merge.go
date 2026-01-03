@@ -169,6 +169,14 @@ func (m *Map) Merge(other Map) {
 		m.Replacements = &copy
 	}
 
+	// Projectiles
+	if m.Projectiles != nil && other.Projectiles != nil {
+		m.Projectiles.Merge(*other.Projectiles)
+	} else if m.Projectiles == nil && other.Projectiles != nil {
+		copy := *other.Projectiles
+		m.Projectiles = &copy
+	}
+
 	// Consumables
 	if m.Consumables != nil && other.Consumables != nil {
 		m.Consumables.Merge(*other.Consumables)

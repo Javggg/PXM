@@ -3,8 +3,6 @@
 Simple merger for PGM XML files.
 
 ### Modules left to map:
-- Consumables
-- Projectiles
 - Renewables
 - World borders
 - Repair, Remove and Keep
