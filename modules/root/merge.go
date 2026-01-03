@@ -185,6 +185,14 @@ func (m *Map) Merge(other Map) {
 		m.Consumables = &copy
 	}
 
+	// Renewables
+	if m.Renewables != nil && other.Renewables != nil {
+		m.Renewables.Merge(*other.Renewables)
+	} else if m.Renewables == nil && other.Renewables != nil {
+		copy := *other.Renewables
+		m.Renewables = &copy
+	}
+
 	// KillRewards
 	if m.KillRewards != nil && other.KillRewards != nil {
 		m.KillRewards.Merge(*other.KillRewards)

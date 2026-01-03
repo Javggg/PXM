@@ -17,6 +17,7 @@ import (
 	"pxm/modules/portals"
 	"pxm/modules/projectiles"
 	"pxm/modules/regions"
+	"pxm/modules/renewables"
 	"pxm/modules/replacements"
 	"pxm/modules/spawners"
 	"pxm/modules/spawns"
@@ -61,8 +62,8 @@ type Map struct {
 	Projectiles         *projectiles.Projectiles         `xml:"projectiles,omitempty"`
 	ModifyBowProjectile *projectiles.ModifyBowProjectile `xml:"modifybowprojectile,omitempty"`
 	Consumables         *consumables.Consumables         `xml:"consumables,omitempty"`
-	// Renewables
-	KillRewards *killrewards.KillRewards `xml:"kill-rewards,omitempty"`
+	Renewables          *renewables.Renewables           `xml:"renewables,omitempty"`
+	KillRewards         *killrewards.KillRewards         `xml:"kill-rewards,omitempty"`
 	// ItemRemove
 	// ItemKeep
 	// ArmorKeep

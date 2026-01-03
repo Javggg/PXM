@@ -3,7 +3,6 @@
 Simple merger for PGM XML files.
 
 ### Modules left to map:
-- Renewables
 - World borders
 - Repair, Remove and Keep
 - Broadcasts
