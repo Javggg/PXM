@@ -25,6 +25,7 @@ import (
 	"pxm/modules/teams"
 	"pxm/modules/variables"
 	"pxm/modules/wools"
+	"pxm/modules/worldborders"
 )
 
 type Map struct {
@@ -38,12 +39,12 @@ type Map struct {
 	Contributors     *authors.Contributors `xml:"contributors,omitempty"`
 	// Rules
 	// Broadcasts
-	Teams      *teams.Teams           `xml:"teams,omitempty"`
-	Kits       *kits.Kits             `xml:"kits,omitempty"`
-	Spawns     *spawns.Spawns         `xml:"spawns,omitempty"`
-	Respawns   *spawns.Respawns       `xml:"respawns,omitempty"`
-	Structures *structures.Structures `xml:"structures,omitempty"`
-	// WorldBorders
+	Teams         *teams.Teams                 `xml:"teams,omitempty"`
+	Kits          *kits.Kits                   `xml:"kits,omitempty"`
+	Spawns        *spawns.Spawns               `xml:"spawns,omitempty"`
+	Respawns      *spawns.Respawns             `xml:"respawns,omitempty"`
+	Structures    *structures.Structures       `xml:"structures,omitempty"`
+	WorldBorders  *worldborders.WorldBorders   `xml:"world-borders,omitempty"`
 	Wools         *wools.Wools                 `xml:"wools,omitempty"`
 	Flags         *flags.Flags                 `xml:"flags,omitempty"`
 	ControlPoints *controlpoints.ControlPoints `xml:"control-points,omitempty"`
