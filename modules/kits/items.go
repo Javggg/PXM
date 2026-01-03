@@ -17,6 +17,7 @@ type Item struct {
 	Material           string                `xml:"material,attr"`
 	Color              *string               `xml:"color,attr,omitempty"`
 	Projectile         *string               `xml:"projectile,attr,omitempty"`
+	Consumable         *string               `xml:"consumable,attr,omitempty"`
 	Amount             *string               `xml:"amount,attr,omitempty"`
 	Damage             *string               `xml:"damage,attr,omitempty"`
 	Unbreakable        *string               `xml:"unbreakable,attr,omitempty"`

@@ -3,15 +3,14 @@
 Simple merger for PGM XML files.
 
 ### Modules left to map:
-- Modes
-- Repair, Remove and Keep
-- Projectiles
 - Consumables
+- Projectiles
 - Renewables
+- World borders
+- Repair, Remove and Keep
 - Broadcasts
 - Rules
 - Stats
-- World borders
 - Payloads
 - Proximity alarms
 - Lanes

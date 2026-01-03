@@ -5,6 +5,7 @@ import (
 	"pxm/modules/actions"
 	"pxm/modules/authors"
 	"pxm/modules/constants"
+	"pxm/modules/consumables"
 	"pxm/modules/controlpoints"
 	"pxm/modules/cores"
 	"pxm/modules/destroyables"
@@ -57,7 +58,7 @@ type Map struct {
 	Replacements *replacements.Replacements `xml:"replacements,omitempty"`
 	// Stats
 	// Projectiles
-	// Consumables
+	Consumables *consumables.Consumables `xml:"consumables,omitempty"`
 	// Renewables
 	KillRewards *killrewards.KillRewards `xml:"kill-rewards,omitempty"`
 	// ItemRemove
