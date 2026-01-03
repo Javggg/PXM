@@ -208,4 +208,36 @@ func (m *Map) Merge(other Map) {
 		copy := *other.KillRewards
 		m.KillRewards = &copy
 	}
+
+	// ItemRemove
+	if m.ItemRemove != nil && other.ItemRemove != nil {
+		m.ItemRemove.Merge(*other.ItemRemove)
+	} else if m.ItemRemove == nil && other.ItemRemove != nil {
+		copy := *other.ItemRemove
+		m.ItemRemove = &copy
+	}
+
+	// ItemKeep
+	if m.ItemKeep != nil && other.ItemKeep != nil {
+		m.ItemKeep.Merge(*other.ItemKeep)
+	} else if m.ItemKeep == nil && other.ItemKeep != nil {
+		copy := *other.ItemKeep
+		m.ItemKeep = &copy
+	}
+
+	// ArmorKeep
+	if m.ArmorKeep != nil && other.ArmorKeep != nil {
+		m.ArmorKeep.Merge(*other.ArmorKeep)
+	} else if m.ArmorKeep == nil && other.ArmorKeep != nil {
+		copy := *other.ArmorKeep
+		m.ArmorKeep = &copy
+	}
+
+	// ToolRepair
+	if m.ToolRepair != nil && other.ToolRepair != nil {
+		m.ToolRepair.Merge(*other.ToolRepair)
+	} else if m.ToolRepair == nil && other.ToolRepair != nil {
+		copy := *other.ToolRepair
+		m.ToolRepair = &copy
+	}
 }

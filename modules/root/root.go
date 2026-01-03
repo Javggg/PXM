@@ -18,6 +18,7 @@ import (
 	"pxm/modules/projectiles"
 	"pxm/modules/regions"
 	"pxm/modules/renewables"
+	"pxm/modules/repairremovekeep"
 	"pxm/modules/replacements"
 	"pxm/modules/spawners"
 	"pxm/modules/spawns"
@@ -65,8 +66,8 @@ type Map struct {
 	Consumables         *consumables.Consumables         `xml:"consumables,omitempty"`
 	Renewables          *renewables.Renewables           `xml:"renewables,omitempty"`
 	KillRewards         *killrewards.KillRewards         `xml:"kill-rewards,omitempty"`
-	// ItemRemove
-	// ItemKeep
-	// ArmorKeep
-	// ToolRepair
+	ItemRemove          *repairremovekeep.ItemRemove     `xml:"itemremove,omitempty"`
+	ItemKeep            *repairremovekeep.ItemKeep       `xml:"itemkeep,omitempty"`
+	ArmorKeep           *repairremovekeep.ArmorKeep      `xml:"armorkeep,omitempty"`
+	ToolRepair          *repairremovekeep.ToolRepair     `xml:"toolrepair,omitempty"`
 }

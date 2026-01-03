@@ -4,6 +4,11 @@ Simple merger for PGM XML files.
 
 ### Modules left to map:
 - Repair, Remove and Keep
+- Falling blocks
+- Lootables
+- Shops
+- Item mods
+- Crafting
 - Broadcasts
 - Rules
 - Stats
@@ -14,13 +19,8 @@ Simple merger for PGM XML files.
 - Compass
 - Classes
 - Pickups
-- Shops
-- Item mods
-- Crafting
-- Lootables
 - Blocks drops
 - Enderchest
-- Falling blocks
 
 #### Others (base exclusive)
 - Variants
