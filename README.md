@@ -2,179 +2,30 @@
 
 Simple merger for PGM XML files.
 
-### Module mapping:
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Authors
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Contributors
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Filters
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Regions
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Actions
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Variables
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Constants
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Replacements
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Spawns
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Kits
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Portals
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Spawners
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Kill rewards
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Structures
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Teams
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Wools
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Flags
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Destroyables
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/100" />
-    Cores
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Control points
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Modes
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Repair, Remove and Keep
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Projectiles
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Consumables
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Renewables
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Broadcasts
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Rules
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Stats
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    World borders
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Payloads
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Proximity alarms
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Lanes
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Gamerules
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Compass
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Classes
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Pickups
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Shops
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Item mods
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Crafting
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Lootables
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Blocks drops
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Enderchest
-</div>
-<div style="display:flex;align-items:center;gap:5px">
-    <img src="https://progress-bar.xyz/0" />
-    Falling blocks
-</div>
+### Modules left to map:
+- Modes
+- Repair, Remove and Keep
+- Projectiles
+- Consumables
+- Renewables
+- Broadcasts
+- Rules
+- Stats
+- World borders
+- Payloads
+- Proximity alarms
+- Lanes
+- Gamerules
+- Compass
+- Classes
+- Pickups
+- Shops
+- Item mods
+- Crafting
+- Lootables
+- Blocks drops
+- Enderchest
+- Falling blocks
 
 #### Others (base exclusive)
 - Variants

@@ -5,6 +5,7 @@ import (
 	"pxm/modules/actions"
 	"pxm/modules/authors"
 	"pxm/modules/constants"
+	"pxm/modules/controlpoints"
 	"pxm/modules/cores"
 	"pxm/modules/destroyables"
 	"pxm/modules/filters"
@@ -39,11 +40,11 @@ type Map struct {
 	Respawns   *spawns.Respawns       `xml:"respawns,omitempty"`
 	Structures *structures.Structures `xml:"structures,omitempty"`
 	// WorldBorders
-	Wools *wools.Wools `xml:"wools,omitempty"`
-	Flags *flags.Flags `xml:"flags,omitempty"`
-	// ControlPoints
-	Destroyables *destroyables.Destroyables `xml:"destroyables,omitempty"`
-	Cores        *cores.Cores               `xml:"cores,omitempty"`
+	Wools         *wools.Wools                 `xml:"wools,omitempty"`
+	Flags         *flags.Flags                 `xml:"flags,omitempty"`
+	ControlPoints *controlpoints.ControlPoints `xml:"control-points,omitempty"`
+	Destroyables  *destroyables.Destroyables   `xml:"destroyables,omitempty"`
+	Cores         *cores.Cores                 `xml:"cores,omitempty"`
 	// Modes
 	// Payloads
 	Portals      *portals.Portals           `xml:"portals,omitempty"`

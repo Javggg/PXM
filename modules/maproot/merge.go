@@ -81,6 +81,14 @@ func (m *Map) Merge(other Map) {
 		m.Flags = &copy
 	}
 
+	// ControlPoints
+	if m.ControlPoints != nil && other.ControlPoints != nil {
+		m.ControlPoints.Merge(*other.ControlPoints)
+	} else if m.ControlPoints == nil && other.ControlPoints != nil {
+		copy := *other.ControlPoints
+		m.ControlPoints = &copy
+	}
+
 	// Destroyables
 	if m.Destroyables != nil && other.Destroyables != nil {
 		m.Destroyables.Merge(*other.Destroyables)
