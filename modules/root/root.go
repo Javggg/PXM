@@ -1,4 +1,4 @@
-package maproot
+package root
 
 import (
 	"encoding/xml"
@@ -12,6 +12,7 @@ import (
 	"pxm/modules/flags"
 	"pxm/modules/killrewards"
 	"pxm/modules/kits"
+	"pxm/modules/modes"
 	"pxm/modules/portals"
 	"pxm/modules/regions"
 	"pxm/modules/replacements"
@@ -45,7 +46,7 @@ type Map struct {
 	ControlPoints *controlpoints.ControlPoints `xml:"control-points,omitempty"`
 	Destroyables  *destroyables.Destroyables   `xml:"destroyables,omitempty"`
 	Cores         *cores.Cores                 `xml:"cores,omitempty"`
-	// Modes
+	Modes         *modes.Modes                 `xml:"modes,omitempty"`
 	// Payloads
 	Portals      *portals.Portals           `xml:"portals,omitempty"`
 	Spawners     *spawners.Spawners         `xml:"spawners,omitempty"`

@@ -1,4 +1,4 @@
-package maproot
+package root
 
 func (m *Map) Merge(other Map) {
 	// Constants
@@ -103,6 +103,14 @@ func (m *Map) Merge(other Map) {
 	} else if m.Cores == nil && other.Cores != nil {
 		copy := *other.Cores
 		m.Cores = &copy
+	}
+
+	// Modes
+	if m.Modes != nil && other.Modes != nil {
+		m.Modes.Merge(*other.Modes)
+	} else if m.Modes == nil && other.Modes != nil {
+		copy := *other.Modes
+		m.Modes = &copy
 	}
 
 	// Regions

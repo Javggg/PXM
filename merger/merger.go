@@ -3,11 +3,11 @@ package merger
 import (
 	"encoding/xml"
 	"os"
-	"pxm/modules/maproot"
+	"pxm/modules/root"
 )
 
-func decodeXml(file *os.File) maproot.Map {
-	var m maproot.Map
+func decodeXml(file *os.File) root.Map {
+	var m root.Map
 	decoder := xml.NewDecoder(file)
 
 	if err := decoder.Decode(&m); err != nil {
@@ -24,7 +24,7 @@ func Merge(folder string, base string, out string) {
 		panic(err)
 	}
 
-	var xmlFiles []maproot.Map
+	var xmlFiles []root.Map
 	var baseIndex int = -1
 
 	for i, entry := range files {
