@@ -7,6 +7,7 @@ func (v *Variables) Merge(other Variables) {
 func (vc *VariableContainer) Merge(other VariableContainer) {
 	vc.Variable = append(vc.Variable, other.Variable...)
 	vc.Array = append(vc.Array, other.Array...)
+	vc.Cuboid = append(vc.Cuboid, other.Cuboid...)
 	vc.WithTeam = append(vc.WithTeam, other.WithTeam...)
 	vc.PlayerLocation = append(vc.PlayerLocation, other.PlayerLocation...)
 	vc.Score = append(vc.Score, other.Score...)

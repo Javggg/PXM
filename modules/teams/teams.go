@@ -25,5 +25,5 @@ type Players struct {
 	Max          string  `xml:"max,attr,omitempty"`
 	MaxOverfill  *string `xml:"max-overfill,attr,omitempty"`
 	ShowNameTags *string `xml:"show-name-tags,attr,omitempty"`
-	Colors       *string `xml:"color,attr,omitempty"`
+	Colors       *string `xml:"colors,attr,omitempty"`
 }

@@ -31,7 +31,7 @@ type Trigger struct {
 	Filter       *filters.FilterContainer `xml:"filter,omitempty"`
 	Scope        string                   `xml:"scope,attr"` // TODO: check
 	Observers    *string                  `xml:"observers,attr,omitempty"`
-	Action       Action                   `xml:"action,omitempty"`
+	Action       *Action                  `xml:"action,omitempty"`
 }
 
 // type SwitchScope struct {
