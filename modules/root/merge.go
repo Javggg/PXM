@@ -219,6 +219,14 @@ func (m *Map) Merge(other Map) {
 		m.Renewables = &copy
 	}
 
+	// FallingBlocks
+	if m.FallingBlocks != nil && other.FallingBlocks != nil {
+		m.FallingBlocks.Merge(*other.FallingBlocks)
+	} else if m.FallingBlocks == nil && other.FallingBlocks != nil {
+		copy := *other.FallingBlocks
+		m.FallingBlocks = &copy
+	}
+
 	// KillRewards
 	if m.KillRewards != nil && other.KillRewards != nil {
 		m.KillRewards.Merge(*other.KillRewards)

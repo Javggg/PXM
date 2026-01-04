@@ -9,6 +9,7 @@ import (
 	"pxm/modules/cores"
 	"pxm/modules/damage"
 	"pxm/modules/destroyables"
+	"pxm/modules/fallingblocks"
 	"pxm/modules/filters"
 	"pxm/modules/flags"
 	"pxm/modules/info"
@@ -73,6 +74,7 @@ type Map struct {
 	ModifyBowProjectile *projectiles.ModifyBowProjectile `xml:"modifybowprojectile,omitempty"`
 	Consumables         *consumables.Consumables         `xml:"consumables,omitempty"`
 	Renewables          *renewables.Renewables           `xml:"renewables,omitempty"`
+	FallingBlocks       *fallingblocks.FallingBlocks     `xml:"falling-blocks,omitempty"`
 	KillRewards         *killrewards.KillRewards         `xml:"kill-rewards,omitempty"`
 	ItemRemove          *repairremovekeep.ItemRemove     `xml:"itemremove,omitempty"`
 	ItemKeep            *repairremovekeep.ItemKeep       `xml:"itemkeep,omitempty"`

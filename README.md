@@ -15,7 +15,6 @@ PXM is a CLI tool for merging **[PGM](https://github.com/PGMDev/PGM)** XML files
 - `--out <output.xml>`: Output file. Default: map.xml
 
 ### Modules left to map:
-- Falling blocks
 - Lootables
 - Shops
 - Item mods
