@@ -203,6 +203,22 @@ func (m *Map) Merge(other Map) {
 		m.Replacements = &copy
 	}
 
+	// Shops
+	if m.Shops != nil && other.Shops != nil {
+		m.Shops.Merge(*other.Shops)
+	} else if m.Shops == nil && other.Shops != nil {
+		copy := *other.Shops
+		m.Shops = &copy
+	}
+
+	// ShopKeepers
+	if m.ShopKeepers != nil && other.ShopKeepers != nil {
+		m.ShopKeepers.Merge(*other.ShopKeepers)
+	} else if m.ShopKeepers == nil && other.ShopKeepers != nil {
+		copy := *other.ShopKeepers
+		m.ShopKeepers = &copy
+	}
+
 	// Projectiles
 	if m.Projectiles != nil && other.Projectiles != nil {
 		m.Projectiles.Merge(*other.Projectiles)

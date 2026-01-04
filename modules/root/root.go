@@ -24,6 +24,7 @@ import (
 	"pxm/modules/repairremovekeep"
 	"pxm/modules/replacements"
 	"pxm/modules/score"
+	"pxm/modules/shops"
 	"pxm/modules/spawners"
 	"pxm/modules/spawns"
 	"pxm/modules/structures"
@@ -72,6 +73,8 @@ type Map struct {
 	Actions      *actions.Actions           `xml:"actions,omitempty"`
 	Replacements *replacements.Replacements `xml:"replacements,omitempty"`
 	// Stats
+	Shops               *shops.Shops                     `xml:"shops,omitempty"`
+	ShopKeepers         *shops.Shopkeepers               `xml:"shopkeepers,omitempty"`
 	Projectiles         *projectiles.Projectiles         `xml:"projectiles,omitempty"`
 	ModifyBowProjectile *projectiles.ModifyBowProjectile `xml:"modifybowprojectile,omitempty"`
 	Consumables         *consumables.Consumables         `xml:"consumables,omitempty"`
