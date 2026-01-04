@@ -45,9 +45,10 @@ type Player struct {
 type Switch struct {
 	XMLName xml.Name `xml:"switch"`
 	BaseReplacement
-	Value string  `xml:"value,attr"`
-	Scope *string `xml:"scope,attr,omitempty"`
-	Cases []Case  `xml:"case"`
+	Value    string  `xml:"value,attr"`
+	Scope    *string `xml:"scope,attr,omitempty"`
+	Cases    []Case  `xml:"case"`
+	Fallback *string `xml:"fallback,omitempty"`
 }
 
 type Case struct {
