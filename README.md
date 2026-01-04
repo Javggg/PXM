@@ -14,8 +14,7 @@ PXM is a CLI tool for merging **[PGM](https://github.com/PGMDev/PGM)** XML files
 - `--base <base.xml>`: Base XML file. Default: base.xml
 - `--out <output.xml>`: Output file. Default: map.xml
 
-### Modules left to map:
-- Lootables
+## Modules left to map:
 - Shops
 - Item mods
 - Crafting
@@ -32,6 +31,6 @@ PXM is a CLI tool for merging **[PGM](https://github.com/PGMDev/PGM)** XML files
 - Blocks drops
 - Enderchest
 
-#### Others (base exclusive)
+### Others (base exclusive)
 - Rage
 - TNT

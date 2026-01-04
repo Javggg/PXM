@@ -15,6 +15,7 @@ import (
 	"pxm/modules/info"
 	"pxm/modules/killrewards"
 	"pxm/modules/kits"
+	"pxm/modules/lootables"
 	"pxm/modules/modes"
 	"pxm/modules/portals"
 	"pxm/modules/projectiles"
@@ -52,6 +53,7 @@ type Map struct {
 	Spawns        *spawns.Spawns               `xml:"spawns,omitempty"`
 	Respawns      *spawns.Respawns             `xml:"respawns,omitempty"`
 	Structures    *structures.Structures       `xml:"structures,omitempty"`
+	Lootables     *lootables.Lootables         `xml:"lootables,omitempty"`
 	WorldBorders  *worldborders.WorldBorders   `xml:"world-borders,omitempty"`
 	Score         *score.Score                 `xml:"score,omitempty"`
 	Time          *score.Time                  `xml:"time,omitempty"`

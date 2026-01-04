@@ -75,6 +75,14 @@ func (m *Map) Merge(other Map) {
 		m.Structures = &copy
 	}
 
+	// Lootables
+	if m.Lootables != nil && other.Lootables != nil {
+		m.Lootables.Merge(*other.Lootables)
+	} else if m.Lootables == nil && other.Lootables != nil {
+		copy := *other.Lootables
+		m.Lootables = &copy
+	}
+
 	// WorldBorders
 	if m.WorldBorders != nil && other.WorldBorders != nil {
 		m.WorldBorders.Merge(*other.WorldBorders)
