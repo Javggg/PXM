@@ -21,6 +21,7 @@ import (
 	"pxm/modules/renewables"
 	"pxm/modules/repairremovekeep"
 	"pxm/modules/replacements"
+	"pxm/modules/score"
 	"pxm/modules/spawners"
 	"pxm/modules/spawns"
 	"pxm/modules/structures"
@@ -51,6 +52,8 @@ type Map struct {
 	Respawns      *spawns.Respawns             `xml:"respawns,omitempty"`
 	Structures    *structures.Structures       `xml:"structures,omitempty"`
 	WorldBorders  *worldborders.WorldBorders   `xml:"world-borders,omitempty"`
+	Score         *score.Score                 `xml:"score,omitempty"`
+	Time          *score.Time                  `xml:"time,omitempty"`
 	Wools         *wools.Wools                 `xml:"wools,omitempty"`
 	Flags         *flags.Flags                 `xml:"flags,omitempty"`
 	ControlPoints *controlpoints.ControlPoints `xml:"control-points,omitempty"`

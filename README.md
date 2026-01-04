@@ -34,7 +34,5 @@ PXM is a CLI tool for merging **[PGM](https://github.com/PGMDev/PGM)** XML files
 - Enderchest
 
 #### Others (base exclusive)
-- Score
-- Time
 - Rage
 - TNT

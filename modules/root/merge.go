@@ -83,6 +83,14 @@ func (m *Map) Merge(other Map) {
 		m.WorldBorders = &copy
 	}
 
+	// Score
+	if m.Score != nil && other.Score != nil {
+		m.Score.Merge(*other.Score)
+	} else if m.Score == nil && other.Score != nil {
+		copy := *other.Score
+		m.Score = &copy
+	}
+
 	// Wools
 	if m.Wools != nil && other.Wools != nil {
 		m.Wools.Merge(*other.Wools)
