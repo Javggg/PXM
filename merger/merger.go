@@ -3,21 +3,25 @@ package merger
 import (
 	"encoding/xml"
 	"os"
+	"path/filepath"
 	"pxm/modules/root"
+
+	"github.com/fatih/color"
 )
 
-func decodeXml(file *os.File) root.Map {
+func decodeXml(file *os.File) (root.Map, error) {
 	var m root.Map
 	decoder := xml.NewDecoder(file)
 
 	if err := decoder.Decode(&m); err != nil {
-		panic(err)
+		color.Red(filepath.Base(file.Name()) + ": " + err.Error())
+		return m, err
 	}
 
-	return m
+	return m, nil
 }
 
-func Merge(folder string, base string, out string) {
+func Merge(folder string, base string, out string) bool {
 	files, err := os.ReadDir(folder)
 
 	if err != nil {
@@ -43,7 +47,10 @@ func Merge(folder string, base string, out string) {
 
 		defer file.Close()
 
-		xmlMap := decodeXml(file)
+		xmlMap, err := decodeXml(file)
+		if err != nil {
+			return false
+		}
 
 		xmlFiles = append(xmlFiles, xmlMap)
 
@@ -70,4 +77,6 @@ func Merge(folder string, base string, out string) {
 	if err != nil {
 		panic(err)
 	}
+
+	return true
 }

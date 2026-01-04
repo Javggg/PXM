@@ -26,9 +26,9 @@ func Watch(folder string, base string, out string) {
 					return
 				}
 				if event.Has(fsnotify.Write) {
-					merger.Merge(folder, base, out)
-					color.Green("Merging changes detected in '%s'", filepath.Base(event.Name))
-
+					if merger.Merge(folder, base, out) {
+						color.Green("Merging changes detected in '%s'", filepath.Base(event.Name))
+					}
 				}
 			case err, ok := <-watcher.Errors:
 				if !ok {
