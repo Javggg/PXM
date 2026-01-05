@@ -33,6 +33,7 @@ type Item struct {
 	ShowCanDestroy     *string               `xml:"show-can-destroy,attr,omitempty"`
 	ShowCanPlaceOn     *string               `xml:"show-can-place-on,attr,omitempty"`
 	ShowOther          *string               `xml:"show-other,attr,omitempty"`
+	InlineEnchantment  *string               `xml:"enchantment,attr,omitempty"`
 	Enchantments       []Enchantment         `xml:"enchantment"`
 	StoredEnchantments []Enchantment         `xml:"stored-enchantment"`
 	Effects            []Effect              `xml:"effect"`
