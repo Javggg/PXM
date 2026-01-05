@@ -436,8 +436,11 @@ type Pulse struct {
 type Variable struct {
 	XMLName xml.Name `xml:"variable"`
 	BaseFilter
-	VarID string `xml:"var,attr"`
-	Value string `xml:",chardata"` // TODO: check for decimal or range
+	VarID  *string `xml:"var,attr"`
+	Index  *string `xml:"index,attr,omitempty"`
+	Value  *string `xml:"value,attr,omitempty"`
+	Scope  *string `xml:"scope,attr,omitempty"`
+	Number string  `xml:",chardata"` // TODO: check for decimal or range
 }
 
 type Offset struct {
