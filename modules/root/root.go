@@ -13,6 +13,7 @@ import (
 	"pxm/modules/filters"
 	"pxm/modules/flags"
 	"pxm/modules/info"
+	"pxm/modules/itemmods"
 	"pxm/modules/killrewards"
 	"pxm/modules/kits"
 	"pxm/modules/lootables"
@@ -80,6 +81,7 @@ type Map struct {
 	Consumables         *consumables.Consumables         `xml:"consumables,omitempty"`
 	Renewables          *renewables.Renewables           `xml:"renewables,omitempty"`
 	FallingBlocks       *fallingblocks.FallingBlocks     `xml:"falling-blocks,omitempty"`
+	ItemMods            *itemmods.ItemMods               `xml:"item-mods,omitempty"`
 	KillRewards         *killrewards.KillRewards         `xml:"kill-rewards,omitempty"`
 	ItemRemove          *repairremovekeep.ItemRemove     `xml:"itemremove,omitempty"`
 	ItemKeep            *repairremovekeep.ItemKeep       `xml:"itemkeep,omitempty"`

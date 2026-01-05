@@ -251,6 +251,14 @@ func (m *Map) Merge(other Map) {
 		m.FallingBlocks = &copy
 	}
 
+	// ItemMods
+	if m.ItemMods != nil && other.ItemMods != nil {
+		m.ItemMods.Merge(*other.ItemMods)
+	} else if m.ItemMods == nil && other.ItemMods != nil {
+		copy := *other.ItemMods
+		m.ItemMods = &copy
+	}
+
 	// KillRewards
 	if m.KillRewards != nil && other.KillRewards != nil {
 		m.KillRewards.Merge(*other.KillRewards)
