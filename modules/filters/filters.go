@@ -146,7 +146,7 @@ type Completed struct {
 }
 
 type Captured struct {
-	XMLName xml.Name `xml:"completed"`
+	XMLName xml.Name `xml:"captured"`
 	BaseFilter
 	ObjectiveID string `xml:",chardata"`
 }

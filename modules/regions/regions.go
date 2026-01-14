@@ -76,7 +76,9 @@ type Sphere struct {
 type Point struct {
 	XMLName xml.Name `xml:"point"`
 	BaseRegion
-	Value string `xml:",chardata"`
+	Yaw   *string `xml:"yaw,attr,omitempty"`
+	Pitch *string `xml:"pitch,attr,omitempty"`
+	Value string  `xml:",chardata"`
 }
 
 type Rectangle struct {
@@ -167,7 +169,8 @@ type Translate struct {
 type Mirror struct {
 	XMLName xml.Name `xml:"mirror"`
 	BaseRegion
-	Normal string `xml:"normal,attr"`
-	Origin string `xml:"origin,attr"`
+	Normal string  `xml:"normal,attr"`
+	Origin string  `xml:"origin,attr"`
+	Region *string `xml:"region,attr"`
 	RegionContainer
 }

@@ -1,6 +1,9 @@
 package shops
 
-import "encoding/xml"
+import (
+	"encoding/xml"
+	"pxm/modules/regions"
+)
 
 type Shopkeepers struct {
 	XMLName     xml.Name     `xml:"shopkeepers"`
@@ -8,12 +11,8 @@ type Shopkeepers struct {
 }
 
 type Shopkeeper struct {
-	Name  *string `xml:"name,attr,omitempty"`
-	Mob   *string `xml:"mob,attr,omitempty"`
-	Shop  string  `xml:"shop,attr"`
-	Point struct {
-		Yaw   *string `xml:"yaw,attr,omitempty"`
-		Pitch *string `xml:"pitch,attr,omitempty"`
-		Value string  `xml:",chardata"`
-	} `xml:"point"`
+	Name  *string       `xml:"name,attr,omitempty"`
+	Mob   *string       `xml:"mob,attr,omitempty"`
+	Shop  string        `xml:"shop,attr"`
+	Point regions.Point `xml:"point"`
 }
