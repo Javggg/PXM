@@ -162,7 +162,8 @@ type Intersect struct {
 type Translate struct {
 	XMLName xml.Name `xml:"translate"`
 	BaseRegion
-	Offset string `xml:"offset,attr"`
+	Offset string  `xml:"offset,attr"`
+	Region *string `xml:"region,attr"`
 	RegionContainer
 }
 
