@@ -30,6 +30,7 @@ import (
 	"pxm/modules/spawns"
 	"pxm/modules/structures"
 	"pxm/modules/teams"
+	"pxm/modules/tnt"
 	"pxm/modules/variables"
 	"pxm/modules/wools"
 	"pxm/modules/worldborders"
@@ -93,4 +94,5 @@ type Map struct {
 	FriendlyFireRefund  *damage.FriendlyFireRefund       `xml:"friendlyfirerefund,omitempty"`
 	Difficulty          *damage.Difficulty               `xml:"difficulty,omitempty"`
 	Hunger              *damage.Hunger                   `xml:"hunger,omitempty"`
+	TNT                 *tnt.TNT                         `xml:"tnt,omitempty"`
 }
