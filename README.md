@@ -14,20 +14,21 @@ PXM is a CLI tool for merging **[PGM](https://github.com/PGMDev/PGM)** XML files
 - `--base <base.xml>`: Base XML file. Default: base.xml
 - `--out <output.xml>`: Output file. Default: map.xml
 
-## Modules left to map:
-- Crafting
-- Broadcasts
-- Rules
-- Stats
-- Payloads
-- Proximity alarms
-- Lanes
-- Gamerules
-- Compass
-- Classes
-- Pickups
-- Blocks drops
-- Enderchest
-
-### Others (base exclusive)
-- Rage
+### Roadmap: 
+ - [ ] Modules
+    - [ ] Crafting
+    - [ ] Broadcasts
+    - [ ] Rules
+    - [ ] Stats
+    - [ ] Payloads
+    - [ ] Proximity alarms
+    - [ ] Lanes
+    - [ ] Gamerules
+    - [ ] Compass
+    - [ ] Classes
+    - [ ] Pickups
+    - [ ] Blocks drops
+    - [ ] Enderchest
+    - [ ] Rage
+ - [ ] Variants support
+ - [ ] Formatted export (Self-closing tags)
