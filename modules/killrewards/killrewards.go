@@ -22,4 +22,5 @@ type KillReward struct {
 	Kit                *kits.Kit                `xml:"kit,omitempty"`
 	Action             *actions.Action          `xml:"action,omitempty"`
 	VictimAction       *actions.Action          `xml:"victim-action,omitempty"`
+	Items              []kits.Item              `xml:"item"`
 }

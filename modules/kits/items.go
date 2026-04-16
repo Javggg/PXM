@@ -50,7 +50,7 @@ type Enchantment struct {
 
 type CanDestroyOrCanPlace struct {
 	Materials []filters.Material `xml:"material"`
-	AllBlocks *any               `xml:"all-blocks,omitempty"`
+	AllBlocks *string            `xml:"all-blocks,omitempty"`
 }
 
 type Head struct {
