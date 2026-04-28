@@ -2,6 +2,7 @@ package destroyables
 
 import (
 	"encoding/xml"
+	"pxm/modules/globals"
 	"pxm/modules/regions"
 )
 
@@ -27,6 +28,7 @@ type Destroyables struct {
 	ProximityMetric     *string       `xml:"proximity-metric,attr,omitempty"`
 	ProximityHorizontal *string       `xml:"proximity-horizontal,attr,omitempty"`
 	Destroyables        []Destroyable `xml:"destroyable"`
+	globals.Globals
 }
 
 type Destroyable struct {
@@ -53,4 +55,5 @@ type Destroyable struct {
 	ProximityMetric     *string                  `xml:"proximity-metric,attr,omitempty"`
 	ProximityHorizontal *string                  `xml:"proximity-horizontal,attr,omitempty"`
 	Region              *regions.RegionContainer `xml:"region,omitempty"`
+	globals.Globals
 }

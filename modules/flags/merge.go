@@ -9,6 +9,8 @@ func (f *Flags) Merge(other Flags) {
 	f.Flags = append(f.Flags, other.Flags...)
 	f.Nets = append(f.Nets, other.Nets...)
 	f.Posts = append(f.Posts, other.Posts...)
+	f.If = append(f.If, other.If...)
+	f.Unless = append(f.Unless, other.Unless...)
 }
 
 func (p *Post) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {

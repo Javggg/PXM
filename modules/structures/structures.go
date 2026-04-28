@@ -3,6 +3,7 @@ package structures
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 	"pxm/modules/regions"
 )
 
@@ -10,6 +11,7 @@ type Structures struct {
 	XMLName    xml.Name    `xml:"structures"`
 	Structures []Structure `xml:"structure"`
 	Dynamics   []Dynamic   `xml:"dynamic"`
+	globals.Globals
 }
 
 type Structure struct {
@@ -20,6 +22,7 @@ type Structure struct {
 	Air          *string                  `xml:"air,attr,omitempty"`
 	Clear        *string                  `xml:"clear,attr,omitempty"`
 	Region       *regions.RegionContainer `xml:"region,omitempty"`
+	globals.Globals
 }
 
 type Dynamic struct {
@@ -33,4 +36,5 @@ type Dynamic struct {
 	Update        *string                  `xml:"update,attr,omitempty"`
 	Filter        *filters.FilterContainer `xml:"filter,omitempty"`
 	Trigger       *filters.FilterContainer `xml:"trigger,omitempty"`
+	globals.Globals
 }

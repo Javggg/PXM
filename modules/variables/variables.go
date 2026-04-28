@@ -1,6 +1,9 @@
 package variables
 
-import "encoding/xml"
+import (
+	"encoding/xml"
+	"pxm/modules/globals"
+)
 
 type Variables struct {
 	XMLName xml.Name `xml:"variables"`
@@ -22,6 +25,7 @@ type VariableContainer struct {
 	TimeLimit      []TimeLimit      `xml:"timelimit"`
 	MaxBuildHeight []MaxBuildHeight `xml:"maxbuildheight"`
 	WorldTime      []WorldTime      `xml:"worldtime"`
+	globals.Globals
 }
 
 type Variable struct {

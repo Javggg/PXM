@@ -3,11 +3,13 @@ package worldborders
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 )
 
 type WorldBorders struct {
 	XMLName      xml.Name      `xml:"world-borders"`
 	WorldBorders []WorldBorder `xml:"world-border"`
+	globals.Globals
 }
 
 type WorldBorder struct {
@@ -22,4 +24,5 @@ type WorldBorder struct {
 	WarningDistance *string                  `xml:"warning-distance,attr,omitempty"`
 	WarningTime     *string                  `xml:"warning-time,attr,omitempty"`
 	When            *filters.FilterContainer `xml:"when,omitempty"`
+	globals.Globals
 }

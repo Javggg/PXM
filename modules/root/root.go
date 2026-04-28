@@ -12,6 +12,7 @@ import (
 	"pxm/modules/fallingblocks"
 	"pxm/modules/filters"
 	"pxm/modules/flags"
+	"pxm/modules/globals"
 	"pxm/modules/info"
 	"pxm/modules/itemmods"
 	"pxm/modules/killrewards"
@@ -44,10 +45,12 @@ type Map struct {
 	Internal         *string  `xml:"internal,attr"`
 	info.Info
 	Gamemodes    []string             `xml:"gamemode"`
+	Variants     []info.Variant       `xml:"variant"`
 	Includes     []info.Include       `xml:"include"`
 	Authors      *info.Authors        `xml:"authors,omitempty"`
 	Contributors *info.Contributors   `xml:"contributors,omitempty"`
 	Constants    *constants.Constants `xml:"constants,omitempty"`
+	globals.Globals
 	// Rules
 	// Broadcasts
 	Teams         *teams.Teams                 `xml:"teams,omitempty"`

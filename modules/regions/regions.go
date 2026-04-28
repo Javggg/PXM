@@ -1,6 +1,9 @@
 package regions
 
-import "encoding/xml"
+import (
+	"encoding/xml"
+	"pxm/modules/globals"
+)
 
 type Regions struct {
 	XMLName xml.Name `xml:"regions"`
@@ -37,6 +40,8 @@ type RegionContainer struct {
 	Empty      []Empty      `xml:"empty"`
 	Nowhere    []Nowhere    `xml:"nowhere"`
 	Everywhere []Everywhere `xml:"everywhere"`
+
+	globals.Globals
 }
 
 type RegionRef struct {
@@ -63,7 +68,7 @@ type Cylinder struct {
 type Block struct {
 	XMLName xml.Name `xml:"block"`
 	BaseRegion
-	Value string `xml:",chardata"`
+	Value string `xml:",innerxml"`
 }
 
 type Sphere struct {
@@ -78,7 +83,7 @@ type Point struct {
 	BaseRegion
 	Yaw   *string `xml:"yaw,attr,omitempty"`
 	Pitch *string `xml:"pitch,attr,omitempty"`
-	Value string  `xml:",chardata"`
+	Value string  `xml:",innerxml"`
 }
 
 type Rectangle struct {

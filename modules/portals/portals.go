@@ -3,6 +3,7 @@ package portals
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 	"pxm/modules/regions"
 )
 
@@ -17,6 +18,7 @@ type Portals struct {
 	Pitch         *string  `xml:"pitch,attr,omitempty"`
 	Observers     *string  `xml:"observers,attr,omitempty"`
 	Portals       []Portal `xml:"portal"`
+	globals.Globals
 }
 
 type Portal struct {
@@ -44,4 +46,5 @@ type Portal struct {
 	Reverse           *filters.FilterContainer `xml:"reverse,omitempty"`
 	Transit           *filters.FilterContainer `xml:"transit,omitempty"`
 	Observers         *filters.FilterContainer `xml:"observers,omitempty"`
+	globals.Globals
 }

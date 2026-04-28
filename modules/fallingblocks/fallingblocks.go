@@ -3,11 +3,13 @@ package fallingblocks
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 )
 
 type FallingBlocks struct {
 	XMLName xml.Name `xml:"falling-blocks"`
 	Rules   []Rule   `xml:"rule"`
+	globals.Globals
 }
 
 type Rule struct {
@@ -17,4 +19,5 @@ type Rule struct {
 	Filter       *filters.FilterContainer `xml:"filter,omitempty"`
 	Sticky       *filters.FilterContainer `xml:"sticky,omitempty"`
 	Delay        *string                  `xml:"delay,omitempty"`
+	globals.Globals
 }

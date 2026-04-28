@@ -1,10 +1,14 @@
 package modes
 
-import "encoding/xml"
+import (
+	"encoding/xml"
+	"pxm/modules/globals"
+)
 
 type Modes struct {
 	XMLName xml.Name `xml:"modes"`
 	Modes   []Mode   `xml:"mode"`
+	globals.Globals
 }
 
 type Mode struct {

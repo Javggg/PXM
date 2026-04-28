@@ -30,5 +30,5 @@ PXM is a CLI tool for merging **[PGM](https://github.com/PGMDev/PGM)** XML files
     - [ ] Blocks drops
     - [ ] Enderchest
     - [ ] Rage
- - [ ] Variants support
+ - [x] Variants support
  - [ ] Formatted export (Self-closing tags)

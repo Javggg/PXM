@@ -3,12 +3,14 @@ package actions
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 )
 
 type Actions struct {
 	XMLName  xml.Name  `xml:"actions"`
 	Actions  []Action  `xml:"action"`
 	Triggers []Trigger `xml:"trigger"`
+	globals.Globals
 }
 
 type BaseAction struct {
@@ -32,6 +34,7 @@ type Trigger struct {
 	Scope        string                   `xml:"scope,attr"` // TODO: check
 	Observers    *string                  `xml:"observers,attr,omitempty"`
 	Action       *Action                  `xml:"action,omitempty"`
+	globals.Globals
 }
 
 // type SwitchScope struct {

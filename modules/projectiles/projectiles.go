@@ -3,11 +3,13 @@ package projectiles
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 )
 
 type Projectiles struct {
 	XMLName     xml.Name     `xml:"projectiles"`
 	Projectiles []Projectile `xml:"projectile"`
+	globals.Globals
 }
 
 type Projectile struct {
@@ -25,4 +27,5 @@ type Projectile struct {
 	Cooldown            *string                  `xml:"cooldown,attr,omitempty"`
 	Precise             *string                  `xml:"precise,attr,omitempty"`
 	DestroyFilter       *filters.FilterContainer `xml:"destroy-filter,omitempty"`
+	globals.Globals
 }

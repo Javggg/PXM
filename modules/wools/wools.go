@@ -2,6 +2,7 @@ package wools
 
 import (
 	"encoding/xml"
+	"pxm/modules/globals"
 	"pxm/modules/regions"
 )
 
@@ -24,6 +25,7 @@ type Wools struct {
 	MonumentProximityMetric     *string  `xml:"monument-proximity-metric,attr,omitempty"`
 	MonumentProximityHorizontal *string  `xml:"monument-proximity-horizontal,attr,omitempty"`
 	Wools                       []Wool   `xml:"wool"`
+	globals.Globals
 }
 
 type Wool struct {
@@ -47,4 +49,5 @@ type Wool struct {
 	MonumentProximityMetric     *string                  `xml:"monument-proximity-metric,attr,omitempty"`
 	MonumentProximityHorizontal *string                  `xml:"monument-proximity-horizontal,attr,omitempty"`
 	Monument                    *regions.RegionContainer `xml:"monument,omitempty"`
+	globals.Globals
 }

@@ -3,6 +3,7 @@ package score
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 	"pxm/modules/regions"
 )
 
@@ -15,6 +16,7 @@ type Score struct {
 	Kills            *string  `xml:"kills,omitempty"`
 	Deaths           *string  `xml:"deaths,omitempty"`
 	Boxes            []Box    `xml:"box"`
+	globals.Globals
 }
 
 type Box struct {
@@ -30,9 +32,11 @@ type Box struct {
 	Redeemables   []struct {
 		Items []struct {
 			Points *string `xml:"points,attr,omitempty"`
-			Value  string  `xml:",chardata"`
+			Value  string  `xml:",innerxml"`
 		} `xml:"item"`
+		globals.Globals
 	} `xml:"redeemables"`
+	globals.Globals
 }
 
 type Time struct {
@@ -41,5 +45,5 @@ type Time struct {
 	Show        *string  `xml:"show,attr,omitempty"`
 	Overtime    *string  `xml:"overtime,attr,omitempty"`
 	MaxOvertime *string  `xml:"max-overtime,attr,omitempty"`
-	Value       *string  `xml:",chardata"`
+	Value       *string  `xml:",innerxml"`
 }

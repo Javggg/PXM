@@ -79,4 +79,7 @@ func (fc *FilterContainer) Merge(other FilterContainer) {
 	fc.Victim = append(fc.Victim, other.Victim...)
 	fc.Attacker = append(fc.Attacker, other.Attacker...)
 	fc.Player = append(fc.Player, other.Player...)
+
+	fc.If = append(fc.If, other.If...)
+	fc.Unless = append(fc.Unless, other.Unless...)
 }

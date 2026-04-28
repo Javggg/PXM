@@ -3,12 +3,14 @@ package renewables
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 	"pxm/modules/regions"
 )
 
 type Renewables struct {
 	XMLName    xml.Name    `xml:"renewables"`
 	Renewables []Renewable `xml:"renewable"`
+	globals.Globals
 }
 
 type Renewable struct {
@@ -27,4 +29,5 @@ type Renewable struct {
 	RenewFilter         *filters.FilterContainer `xml:"renew-filter,omitempty"`
 	ReplaceFilter       *filters.FilterContainer `xml:"replace-filter,omitempty"`
 	ShuffleFilter       *filters.FilterContainer `xml:"shuffle-filter,omitempty"`
+	globals.Globals
 }

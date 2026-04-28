@@ -3,6 +3,7 @@ package damage
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 )
 
 type Damage struct {
@@ -14,17 +15,17 @@ type Damage struct {
 
 type FriendlyFire struct {
 	XMLName xml.Name `xml:"friendlyfire"`
-	Value   string   `xml:",chardata"`
+	Value   []byte   `xml:",innerxml"`
 }
 
 type FriendlyFireRefund struct {
 	XMLName xml.Name `xml:"friendlyfirerefund"`
-	Value   string   `xml:",chardata"`
+	Value   []byte   `xml:",innerxml"`
 }
 
 type Difficulty struct {
 	XMLName xml.Name `xml:"difficulty"`
-	Value   string   `xml:",chardata"`
+	Value   []byte   `xml:",innerxml"`
 }
 
 type Hunger struct {
@@ -39,6 +40,7 @@ type DisableDamage struct {
 		Self  *string `xml:"self,attr,omitempty"`
 		Enemy *string `xml:"enemy,attr,omitempty"`
 		Other *string `xml:"other,attr,omitempty"`
-		Value string  `xml:",chardata"`
+		Value []byte  `xml:",innerxml"`
 	} `xml:"damage"`
+	globals.Globals
 }

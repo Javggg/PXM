@@ -1,10 +1,14 @@
 package lootables
 
-import "pxm/modules/kits"
+import (
+	"pxm/modules/globals"
+	"pxm/modules/kits"
+)
 
 type Lootables struct {
 	Loots []Loot `xml:"loot"`
 	Fills []Fill `xml:"fill"`
+	globals.Globals
 }
 
 type LootContainer struct {
@@ -13,6 +17,7 @@ type LootContainer struct {
 	Alls    []All       `xml:"all"`
 	Items   []kits.Item `xml:"item"`
 	Options []Option    `xml:"option"`
+	globals.Globals
 }
 
 type Loot struct {

@@ -3,18 +3,21 @@ package shops
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 	"pxm/modules/kits"
 )
 
 type Shops struct {
 	XMLName xml.Name `xml:"shops"`
 	Shops   []Shop   `xml:"shop"`
+	globals.Globals
 }
 
 type Shop struct {
 	ID         string     `xml:"id,attr"`
 	Name       *string    `xml:"name,attr,omitempty"`
 	Categories []Category `xml:"category"`
+	globals.Globals
 }
 
 type Category struct {
@@ -24,6 +27,7 @@ type Category struct {
 	InlineFilter *string                  `xml:"filter,attr,omitempty"`
 	Filter       *filters.FilterContainer `xml:"filter,omitempty"`
 	Items        []Item                   `xml:"item"`
+	globals.Globals
 }
 
 type Item struct {
@@ -37,5 +41,8 @@ type Item struct {
 	Payments     []struct {
 		Price    *string `xml:"price,attr,omitempty"`
 		Currency *string `xml:"currency,attr,omitempty"`
+		Item     *Item   `xml:"item,omitempty"`
+		globals.Globals
 	} `xml:"payment"`
+	globals.Globals
 }

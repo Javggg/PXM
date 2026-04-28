@@ -1,10 +1,14 @@
 package constants
 
-import "encoding/xml"
+import (
+	"encoding/xml"
+	"pxm/modules/globals"
+)
 
 type Constants struct {
 	XMLName   xml.Name   `xml:"constants"`
 	Constants []Constant `xml:"constant"`
+	globals.Globals
 }
 
 type Constant struct {
@@ -12,5 +16,5 @@ type Constant struct {
 	ID       string   `xml:"id,attr"`
 	Delete   *string  `xml:"delete,attr,omitempty"`
 	Fallback *string  `xml:"fallback,attr,omitempty"`
-	Value    string   `xml:",chardata"`
+	Value    []byte   `xml:",innerxml"`
 }

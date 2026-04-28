@@ -1,6 +1,9 @@
 package tnt
 
-import "encoding/xml"
+import (
+	"encoding/xml"
+	"pxm/modules/globals"
+)
 
 type TNT struct {
 	XMLName                xml.Name `xml:"tnt"`
@@ -13,4 +16,5 @@ type TNT struct {
 	DispenserTntMultiplier *string  `xml:"dispenser-tnt-multiplier,omitempty"`
 	Licensing              *string  `xml:"licensing,omitempty"`
 	FriendlyDefuse         *string  `xml:"friendly-defuse,omitempty"`
+	globals.Globals
 }

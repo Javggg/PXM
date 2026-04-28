@@ -2,6 +2,7 @@ package spawns
 
 import (
 	"encoding/xml"
+	"pxm/modules/globals"
 	"pxm/modules/kits"
 	"pxm/modules/regions"
 )
@@ -11,6 +12,7 @@ type Spawns struct {
 	Default   Spawn     `xml:"default"`
 	Spawns    []Spawn   `xml:"spawn"`
 	PlayerKit *kits.Kit `xml:"player-kit"`
+	globals.Globals
 }
 
 type Spawn struct {
@@ -27,6 +29,7 @@ type Spawn struct {
 	Persistent      *string   `xml:"persistent,attr,omitempty"`
 	Kit             *string   `xml:"kit,attr,omitempty"`
 	Filter          *string   `xml:"filter,attr,omitempty"`
+	globals.Globals
 }
 
 type Regions struct {

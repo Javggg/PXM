@@ -22,6 +22,11 @@ func (m *Map) Merge(other Map) {
 		m.Gamemodes = append(m.Gamemodes, other.Gamemodes...)
 	}
 
+	// Variants
+	if len(other.Variants) > 0 {
+		m.Variants = append(m.Variants, other.Variants...)
+	}
+
 	// Includes
 	if len(other.Includes) > 0 {
 		m.Includes = append(m.Includes, other.Includes...)
@@ -33,6 +38,16 @@ func (m *Map) Merge(other Map) {
 	} else if m.Constants == nil && other.Constants != nil {
 		copy := *other.Constants
 		m.Constants = &copy
+	}
+
+	// If
+	if len(other.If) > 0 {
+		m.If = append(m.If, other.If...)
+	}
+
+	// Unless
+	if len(other.Unless) > 0 {
+		m.Unless = append(m.Unless, other.Unless...)
 	}
 
 	// Teams

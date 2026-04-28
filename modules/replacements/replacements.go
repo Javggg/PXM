@@ -3,6 +3,7 @@ package replacements
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 )
 
 type Replacements struct {
@@ -15,6 +16,7 @@ type ReplacementsContainer struct {
 	Player      []Player      `xml:"player"`
 	Switch      []Switch      `xml:"switch"`
 	Replacement []Replacement `xml:"replacement"`
+	globals.Globals
 }
 
 type BaseReplacement struct {
@@ -23,7 +25,7 @@ type BaseReplacement struct {
 
 type Replacement struct {
 	ID       string `xml:"id,attr"`
-	GlobalID string `xml:",chardata"`
+	GlobalID string `xml:",innerxml"`
 }
 
 type Decimal struct {
@@ -40,6 +42,7 @@ type Player struct {
 	Var      string  `xml:"var,attr"`
 	Style    *string `xml:"style,attr,omitempty"`
 	Fallback *string `xml:"fallback,omitempty"`
+	globals.Globals
 }
 
 type Switch struct {
@@ -49,6 +52,7 @@ type Switch struct {
 	Scope    *string `xml:"scope,attr,omitempty"`
 	Cases    []Case  `xml:"case"`
 	Fallback *string `xml:"fallback,omitempty"`
+	globals.Globals
 }
 
 type Case struct {
@@ -59,4 +63,5 @@ type Case struct {
 	Match        *string                  `xml:"match,omitempty"`
 	Filter       *filters.FilterContainer `xml:"filter,omitempty"`
 	Result       *string                  `xml:"result,omitempty"`
+	globals.Globals
 }

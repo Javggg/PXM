@@ -2,6 +2,7 @@ package regions
 
 import (
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 	"pxm/modules/kits"
 )
 
@@ -33,4 +34,5 @@ type Apply struct {
 	Kit                     *kits.Kit                `xml:"kit,omitempty"`
 	LendKit                 *kits.Kit                `xml:"lend-kit,omitempty"`
 	Filter                  *filters.FilterContainer `xml:"filter,omitempty"`
+	globals.Globals
 }

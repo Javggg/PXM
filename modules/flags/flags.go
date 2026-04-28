@@ -3,6 +3,7 @@ package flags
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 	"pxm/modules/kits"
 )
 
@@ -11,6 +12,7 @@ type Flags struct {
 	Flags   []Flag   `xml:"flag"`
 	Posts   []Post   `xml:"post"`
 	Nets    []Net    `xml:"net"`
+	globals.Globals
 }
 
 type Flag struct {
@@ -53,6 +55,7 @@ type Flag struct {
 	PickupKit               *kits.Kit                `xml:"pickup-kit,omitempty"`
 	DropKit                 *kits.Kit                `xml:"drop-kit,omitempty"`
 	CarryKit                *kits.Kit                `xml:"carry-kit,omitempty"`
+	globals.Globals
 }
 
 type Post struct {

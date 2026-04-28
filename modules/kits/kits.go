@@ -3,6 +3,7 @@ package kits
 import (
 	"encoding/xml"
 	"pxm/modules/actions"
+	"pxm/modules/globals"
 )
 
 type Kits struct {
@@ -10,6 +11,7 @@ type Kits struct {
 	Give []GiveTakeLend `xml:"give"`
 	Take []GiveTakeLend `xml:"take"`
 	Lend []GiveTakeLend `xml:"lend"`
+	globals.Globals
 }
 
 type Kit struct {
@@ -46,6 +48,7 @@ type Kit struct {
 	Attribute          []Attribute         `xml:"attribute"`
 	Kits               []Kit               `xml:"kit"`
 	Action             []*actions.Action   `xml:"action"`
+	globals.Globals
 }
 
 type GiveTakeLend struct {

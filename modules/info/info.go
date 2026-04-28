@@ -1,6 +1,9 @@
 package info
 
-import "encoding/xml"
+import (
+	"encoding/xml"
+	"pxm/modules/globals"
+)
 
 type Info struct {
 	Name      string  `xml:"name"`
@@ -16,11 +19,13 @@ type Info struct {
 type Authors struct {
 	XMLName xml.Name      `xml:"authors"`
 	Authors []Contributor `xml:"author"`
+	globals.Globals
 }
 
 type Contributors struct {
 	XMLName      xml.Name      `xml:"contributors"`
 	Contributors []Contributor `xml:"contributor"`
+	globals.Globals
 }
 
 type Contributor struct {
@@ -31,4 +36,12 @@ type Contributor struct {
 type Include struct {
 	XMLName xml.Name `xml:"include"`
 	ID      string   `xml:"id,attr"`
+}
+
+type Variant struct {
+	XMLName  xml.Name `xml:"variant"`
+	ID       string   `xml:"id,attr"`
+	Override *string  `xml:"override,attr,omitempty"`
+	World    *string  `xml:"world,attr,omitempty"`
+	Name     string   `xml:",innerxml"`
 }

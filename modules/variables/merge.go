@@ -14,4 +14,6 @@ func (vc *VariableContainer) Merge(other VariableContainer) {
 	vc.TimeLimit = append(vc.TimeLimit, other.TimeLimit...)
 	vc.MaxBuildHeight = append(vc.MaxBuildHeight, other.MaxBuildHeight...)
 	vc.WorldTime = append(vc.WorldTime, other.WorldTime...)
+	vc.If = append(vc.If, other.If...)
+	vc.Unless = append(vc.Unless, other.Unless...)
 }

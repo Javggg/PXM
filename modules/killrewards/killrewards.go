@@ -4,12 +4,14 @@ import (
 	"encoding/xml"
 	"pxm/modules/actions"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 	"pxm/modules/kits"
 )
 
 type KillRewards struct {
 	XMLName     xml.Name     `xml:"kill-rewards"`
 	KillRewards []KillReward `xml:"kill-reward"`
+	globals.Globals
 }
 
 type KillReward struct {
@@ -23,4 +25,5 @@ type KillReward struct {
 	Action             *actions.Action          `xml:"action,omitempty"`
 	VictimAction       *actions.Action          `xml:"victim-action,omitempty"`
 	Items              []kits.Item              `xml:"item"`
+	globals.Globals
 }

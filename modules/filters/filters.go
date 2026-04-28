@@ -2,6 +2,7 @@ package filters
 
 import (
 	"encoding/xml"
+	"pxm/modules/globals"
 )
 
 type FilterElement any
@@ -91,6 +92,8 @@ type FilterContainer struct {
 	Victim   []Victim   `xml:"victim"`
 	Attacker []Attacker `xml:"attacker"`
 	Player   []Player   `xml:"player"`
+
+	globals.Globals
 }
 
 type FilterInPlace struct {
@@ -119,7 +122,7 @@ type Never struct {
 type Time struct {
 	XMLName xml.Name `xml:"time"`
 	BaseFilter
-	Value string `xml:",chardata"` // TODO: check for valid duration
+	Value string `xml:",innerxml"` // TODO: check for valid duration
 }
 
 type MatchStarted struct {
@@ -142,37 +145,37 @@ type Completed struct {
 	BaseFilter
 	Any         *string `xml:"any,attr,omitempty"`
 	Team        *string `xml:"team,attr,omitempty"` // TODO: check
-	ObjectiveID string  `xml:",chardata"`           // TODO: check
+	ObjectiveID string  `xml:",innerxml"`           // TODO: check
 }
 
 type Captured struct {
 	XMLName xml.Name `xml:"captured"`
 	BaseFilter
-	ObjectiveID string `xml:",chardata"`
+	ObjectiveID string `xml:",innerxml"`
 }
 
 type FlagCarried struct {
 	XMLName xml.Name `xml:"flag-carried"`
 	BaseFilter
-	FlagID string `xml:",chardata"` // TODO: check for id
+	FlagID string `xml:",innerxml"` // TODO: check for id
 }
 
 type FlagDropped struct {
 	XMLName xml.Name `xml:"flag-dropped"`
 	BaseFilter
-	FlagID string `xml:",chardata"` // TODO: check for id
+	FlagID string `xml:",innerxml"` // TODO: check for id
 }
 
 type FlagReturned struct {
 	XMLName xml.Name `xml:"flag-returned"`
 	BaseFilter
-	FlagID string `xml:",chardata"` // TODO: check for id
+	FlagID string `xml:",innerxml"` // TODO: check for id
 }
 
 type FlagCaptured struct {
 	XMLName xml.Name `xml:"flag-captured"`
 	BaseFilter
-	FlagID string `xml:",chardata"` // TODO: check for id
+	FlagID string `xml:",innerxml"` // TODO: check for id
 }
 
 // Spatial
@@ -195,13 +198,13 @@ type Blocks struct {
 type Material struct {
 	XMLName xml.Name `xml:"material"`
 	BaseFilter
-	Value string `xml:",chardata"` // TODO: check for material
+	Value string `xml:",innerxml"` // TODO: check for material
 }
 
 type StructuralLoad struct {
 	XMLName xml.Name `xml:"structural-load"`
 	BaseFilter
-	Value string `xml:",chardata"`
+	Value string `xml:",innerxml"`
 }
 
 // Entity
@@ -209,19 +212,19 @@ type StructuralLoad struct {
 type Spawn struct {
 	XMLName xml.Name `xml:"spawn"`
 	BaseFilter
-	Reason string `xml:",chardata"` // TODO: check for reason
+	Reason string `xml:",innerxml"` // TODO: check for reason
 }
 
 type Mob struct {
 	XMLName xml.Name `xml:"mob"`
 	BaseFilter
-	Name string `xml:",chardata"` // TODO: check for mob
+	Name string `xml:",innerxml"` // TODO: check for mob
 }
 
 type Entity struct {
 	XMLName xml.Name `xml:"entity"`
 	BaseFilter
-	Name string `xml:",chardata"` // TODO: check for entity
+	Name string `xml:",innerxml"` // TODO: check for entity
 }
 
 // Competitor
@@ -229,21 +232,21 @@ type Entity struct {
 type CarryingFlag struct {
 	XMLName xml.Name `xml:"carrying-flag"`
 	BaseFilter
-	FlagID string `xml:",chardata"` // TODO: check for id
+	FlagID string `xml:",innerxml"` // TODO: check for id
 }
 
 type Score struct {
 	XMLName xml.Name `xml:"score"`
 	BaseFilter
 	TeamID *string `xml:"team,attr,omitempty"` // TODO: check for team id
-	Value  string  `xml:",chardata"`           // TODO: check for valid range
+	Value  string  `xml:",innerxml"`           // TODO: check for valid range
 }
 
 type Rank struct {
 	XMLName xml.Name `xml:"rank"`
 	BaseFilter
 	TeamID *string `xml:"team,attr,omitempty"` // TODO: check for team id
-	Value  string  `xml:",chardata"`           // TODO: check for valid range
+	Value  string  `xml:",innerxml"`           // TODO: check for valid range
 }
 
 // Player
@@ -319,19 +322,19 @@ type CanFly struct {
 type Team struct {
 	XMLName xml.Name `xml:"team"`
 	BaseFilter
-	TeamID string `xml:",chardata"` // TODO: check for team id
+	TeamID string `xml:",innerxml"` // TODO: check for team id
 }
 
 type Class struct {
 	XMLName xml.Name `xml:"class"`
 	BaseFilter
-	Name string `xml:",chardata"` // TODO: check for class
+	Name string `xml:",innerxml"` // TODO: check for class
 }
 
 type Effect struct {
 	XMLName xml.Name `xml:"effect"`
 	BaseFilter
-	Name string `xml:",chardata"` // TODO: check for effect
+	Name string `xml:",innerxml"` // TODO: check for effect
 }
 
 // Item sub-element
@@ -349,6 +352,7 @@ type Carrying struct {
 	IgnoreName         *string `xml:"ignore-name,attr,omitempty"`
 	IgnoreEnchantments *string `xml:"ignore-enchantments,attr,omitempty"`
 	Item               Item    `xml:"item"`
+	globals.Globals
 }
 
 type Holding struct {
@@ -360,6 +364,7 @@ type Holding struct {
 	IgnoreName         *string `xml:"ignore-name,attr,omitempty"`
 	IgnoreEnchantments *string `xml:"ignore-enchantments,attr,omitempty"`
 	Item               Item    `xml:"item"`
+	globals.Globals
 }
 
 type Wearing struct {
@@ -371,6 +376,7 @@ type Wearing struct {
 	IgnoreName         *string `xml:"ignore-name,attr,omitempty"`
 	IgnoreEnchantments *string `xml:"ignore-enchantments,attr,omitempty"`
 	Item               Item    `xml:"item"`
+	globals.Globals
 }
 
 // Event
@@ -378,13 +384,13 @@ type Wearing struct {
 type Cause struct {
 	XMLName xml.Name `xml:"cause"`
 	BaseFilter
-	CauseType string `xml:",chardata"` // TODO: check for cause
+	CauseType string `xml:",innerxml"` // TODO: check for cause
 }
 
 type Random struct {
 	XMLName xml.Name `xml:"random"`
 	BaseFilter
-	Value string `xml:",chardata"` // TODO: check for decimal or range
+	Value string `xml:",innerxml"` // TODO: check for decimal or range
 }
 
 // Damage
@@ -392,13 +398,14 @@ type Random struct {
 type Relation struct {
 	XMLName xml.Name `xml:"relation"`
 	BaseFilter
-	RelationType string `xml:",chardata"` // TODO: check for relation
+	RelationType string `xml:",innerxml"` // TODO: check for relation
 }
 
 type Damager struct {
 	XMLName xml.Name `xml:"damager"`
 	BaseFilter
 	Entity Entity `xml:"entity"`
+	globals.Globals
 }
 
 // Time
@@ -440,7 +447,7 @@ type Variable struct {
 	Index  *string `xml:"index,attr,omitempty"`
 	Value  *string `xml:"value,attr,omitempty"`
 	Scope  *string `xml:"scope,attr,omitempty"`
-	Number string  `xml:",chardata"` // TODO: check for decimal or range
+	Number string  `xml:",innerxml"` // TODO: check for decimal or range
 }
 
 type Offset struct {
@@ -448,6 +455,7 @@ type Offset struct {
 	BaseFilter
 	Vector string   `xml:"vector,attr"`
 	Filter Material `xml:"material"`
+	globals.Globals
 }
 
 type Players struct {

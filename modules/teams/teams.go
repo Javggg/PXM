@@ -1,10 +1,14 @@
 package teams
 
-import "encoding/xml"
+import (
+	"encoding/xml"
+	"pxm/modules/globals"
+)
 
 type Teams struct {
 	XMLName xml.Name `xml:"teams"`
 	Teams   []Team   `xml:"team"`
+	globals.Globals
 }
 
 type Team struct {

@@ -3,6 +3,7 @@ package controlpoints
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 	"pxm/modules/regions"
 )
 
@@ -38,6 +39,7 @@ type ControlPoints struct {
 	CaptureFilter    *string        `xml:"capture-filter,attr,omitempty"`
 	PlayerFilter     *string        `xml:"player-filter,attr,omitempty"`
 	ControlPoints    []ControlPoint `xml:"control-point"`
+	globals.Globals
 }
 
 type ControlPoint struct {
@@ -77,4 +79,5 @@ type ControlPoint struct {
 	Captured            *regions.RegionContainer `xml:"captured,omitempty"`
 	CaptureFilter       *filters.FilterContainer `xml:"capture-filter,omitempty"`
 	PlayerFilter        *filters.FilterContainer `xml:"player-filter,omitempty"`
+	globals.Globals
 }

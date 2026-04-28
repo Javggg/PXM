@@ -30,4 +30,6 @@ func (rc *RegionContainer) Merge(other RegionContainer) {
 	rc.Empty = append(rc.Empty, other.Empty...)
 	rc.Nowhere = append(rc.Nowhere, other.Nowhere...)
 	rc.Everywhere = append(rc.Everywhere, other.Everywhere...)
+	rc.If = append(rc.If, other.If...)
+	rc.Unless = append(rc.Unless, other.Unless...)
 }

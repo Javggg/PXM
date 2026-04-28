@@ -2,23 +2,27 @@ package itemmods
 
 import (
 	"encoding/xml"
+	"pxm/modules/globals"
 	"pxm/modules/kits"
 )
 
 type ItemMods struct {
 	XMLName xml.Name `xml:"item-mods"`
 	Rules   []Rule   `xml:"rule"`
+	globals.Globals
 }
 
 type Rule struct {
 	Match  Match  `xml:"match"`
 	Modify Modify `xml:"modify"`
+	globals.Globals
 }
 
 type Match struct {
 	Material     *string `xml:"material,omitempty"`
 	AllMaterials *string `xml:"all-materials,omitempty"`
 	AllBlocks    *string `xml:"all-blocks,omitempty"`
+	globals.Globals
 }
 
 type Modify struct {
@@ -37,4 +41,5 @@ type Modify struct {
 	Attributes       []kits.Attribute           `xml:"attribute"`
 	CanDestroys      *kits.CanDestroyOrCanPlace `xml:"can-destroy,omitempty"`
 	CanPlaceOn       *kits.CanDestroyOrCanPlace `xml:"can-place-on,omitempty"`
+	globals.Globals
 }

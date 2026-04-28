@@ -3,6 +3,7 @@ package kits
 import (
 	"encoding/xml"
 	"pxm/modules/filters"
+	"pxm/modules/globals"
 )
 
 type BaseItem struct {
@@ -41,6 +42,7 @@ type Item struct {
 	Attributes         []Attribute           `xml:"attribute"`
 	CanDestroy         *CanDestroyOrCanPlace `xml:"can-destroy,omitempty"`
 	CanPlaceOn         *CanDestroyOrCanPlace `xml:"can-place-on,omitempty"`
+	globals.Globals
 }
 
 type Enchantment struct {
@@ -51,6 +53,7 @@ type Enchantment struct {
 type CanDestroyOrCanPlace struct {
 	Materials []filters.Material `xml:"material"`
 	AllBlocks *string            `xml:"all-blocks,omitempty"`
+	globals.Globals
 }
 
 type Head struct {
@@ -61,6 +64,7 @@ type Head struct {
 	InlineSkin *string `xml:"skin,attr,omitempty"`
 	UUID       *string `xml:"uuid,omitempty"`
 	Skin       *string `xml:"skin,omitempty"`
+	globals.Globals
 }
 
 type Banner struct {
@@ -72,6 +76,7 @@ type Banner struct {
 		Pattern string   `xml:"pattern,attr"`
 		Color   string   `xml:"color,attr"`
 	} `xml:"layer"`
+	globals.Globals
 }
 
 type Armor struct {
@@ -84,6 +89,7 @@ type Armor struct {
 	InlineEnchantments *string       `xml:"enchantments,attr,omitempty"`
 	Enchantments       []Enchantment `xml:"enchantment"`
 	Attributes         []Attribute   `xml:"attribute"`
+	globals.Globals
 }
 
 type Book struct {
@@ -92,7 +98,9 @@ type Book struct {
 	Author  *string  `xml:"author,omitempty"`
 	Pages   struct {
 		Page *string `xml:"page,omitempty"`
+		globals.Globals
 	} `xml:"pages,omitempty"`
+	globals.Globals
 }
 
 type Firework struct {
@@ -105,4 +113,5 @@ type Firework struct {
 		Colors  []string `xml:"color"`
 		Fades   []string `xml:"fade"`
 	}
+	globals.Globals
 }
