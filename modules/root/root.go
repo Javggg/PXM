@@ -3,6 +3,7 @@ package root
 import (
 	"encoding/xml"
 	"pxm/modules/actions"
+	"pxm/modules/compass"
 	"pxm/modules/constants"
 	"pxm/modules/consumables"
 	"pxm/modules/controlpoints"
@@ -91,6 +92,7 @@ type Map struct {
 	ItemKeep            *repairremovekeep.ItemKeep       `xml:"itemkeep,omitempty"`
 	ArmorKeep           *repairremovekeep.ArmorKeep      `xml:"armorkeep,omitempty"`
 	ToolRepair          *repairremovekeep.ToolRepair     `xml:"toolrepair,omitempty"`
+	Compass             *compass.Compass                 `xml:"compass,omitempty"`
 	Damage              *damage.Damage                   `xml:"damage,omitempty"`
 	DisableDamage       *damage.DisableDamage            `xml:"disabledamage,omitempty"`
 	FriendlyFire        *damage.FriendlyFire             `xml:"friendlyfire,omitempty"`

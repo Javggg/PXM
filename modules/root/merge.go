@@ -314,6 +314,14 @@ func (m *Map) Merge(other Map) {
 		m.ToolRepair = &copy
 	}
 
+	// Compass
+	if m.Compass != nil && other.Compass != nil {
+		m.Compass.Merge(*other.Compass)
+	} else if m.Compass == nil && other.Compass != nil {
+		copy := *other.Compass
+		m.Compass = &copy
+	}
+
 	// DisableDamage
 	if m.DisableDamage != nil && other.DisableDamage != nil {
 		m.DisableDamage.Merge(*other.DisableDamage)
