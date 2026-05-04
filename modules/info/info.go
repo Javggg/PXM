@@ -31,7 +31,7 @@ type Contributors struct {
 type Contributor struct {
 	UUID         *string `xml:"uuid,attr,omitempty"`
 	Contribution *string `xml:"contribution,attr,omitempty"`
-	Value        *string `xml:",innerxml"`
+	Value        []byte  `xml:",innerxml"`
 }
 
 type Include struct {
