@@ -86,6 +86,7 @@ type Armor struct {
 	Color              *string       `xml:"color,attr,omitempty"`
 	Unbreakable        *string       `xml:"unbreakable,attr,omitempty"`
 	Locked             *string       `xml:"locked,attr,omitempty"`
+	Damage             *string       `xml:"damage,attr,omitempty"`
 	InlineEnchantments *string       `xml:"enchantments,attr,omitempty"`
 	Enchantments       []Enchantment `xml:"enchantment"`
 	Attributes         []Attribute   `xml:"attribute"`
