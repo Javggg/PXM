@@ -33,5 +33,8 @@ type Spawner struct {
 		Effects []kits.Effect `xml:"effect"`
 		globals.Globals
 	} `xml:"potion,omitempty"`
+	Mob *struct {
+		Attrs []xml.Attr `xml:",any,attr"`
+	} `xml:"mob,omitempty"`
 	globals.Globals
 }
