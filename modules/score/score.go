@@ -45,5 +45,5 @@ type Time struct {
 	Show        *string  `xml:"show,attr,omitempty"`
 	Overtime    *string  `xml:"overtime,attr,omitempty"`
 	MaxOvertime *string  `xml:"max-overtime,attr,omitempty"`
-	Value       *string  `xml:",innerxml"`
+	Value       string   `xml:",innerxml"`
 }

@@ -48,6 +48,7 @@ type Map struct {
 	Gamemodes    []string             `xml:"gamemode"`
 	Variants     []info.Variant       `xml:"variant"`
 	Includes     []info.Include       `xml:"include"`
+	Terrain      *info.Terrain        `xml:"terrain"`
 	Authors      *info.Authors        `xml:"authors,omitempty"`
 	Contributors *info.Contributors   `xml:"contributors,omitempty"`
 	Constants    *constants.Constants `xml:"constants,omitempty"`
@@ -93,6 +94,8 @@ type Map struct {
 	ArmorKeep           *repairremovekeep.ArmorKeep      `xml:"armorkeep,omitempty"`
 	ToolRepair          *repairremovekeep.ToolRepair     `xml:"toolrepair,omitempty"`
 	Compass             *compass.Compass                 `xml:"compass,omitempty"`
+	World               *info.World                      `xml:"world,omitempty"`
+	Mobs                *info.Mobs                       `xml:"mobs,omitempty"`
 	Damage              *damage.Damage                   `xml:"damage,omitempty"`
 	DisableDamage       *damage.DisableDamage            `xml:"disabledamage,omitempty"`
 	FriendlyFire        *damage.FriendlyFire             `xml:"friendlyfire,omitempty"`
