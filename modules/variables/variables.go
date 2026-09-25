@@ -3,6 +3,7 @@ package variables
 import (
 	"encoding/xml"
 	"pxm/modules/globals"
+	"pxm/modules/regions"
 )
 
 type Variables struct {
@@ -16,15 +17,19 @@ type BaseVariable struct {
 }
 
 type VariableContainer struct {
-	Variable       []Variable       `xml:"variable"`
-	Array          []Array          `xml:"array"`
-	Cuboid         []Cuboid         `xml:"cuboid"`
-	WithTeam       []WithTeam       `xml:"with-team"`
-	PlayerLocation []PlayerLocation `xml:"player-location"`
-	Score          []Score          `xml:"score"`
-	TimeLimit      []TimeLimit      `xml:"timelimit"`
-	MaxBuildHeight []MaxBuildHeight `xml:"maxbuildheight"`
-	WorldTime      []WorldTime      `xml:"worldtime"`
+	Variable       []Variable         `xml:"variable"`
+	Array          []Array            `xml:"array"`
+	Cuboid         []regions.Cuboid   `xml:"cuboid"`
+	Block          []regions.Block    `xml:"block"`
+	Cylinder       []regions.Cylinder `xml:"cylinder"`
+	Point          []regions.Point    `xml:"point"`
+	Sphere         []regions.Sphere   `xml:"sphere"`
+	WithTeam       []WithTeam         `xml:"with-team"`
+	PlayerLocation []PlayerLocation   `xml:"player-location"`
+	Score          []Score            `xml:"score"`
+	TimeLimit      []TimeLimit        `xml:"timelimit"`
+	MaxBuildHeight []MaxBuildHeight   `xml:"maxbuildheight"`
+	WorldTime      []WorldTime        `xml:"worldtime"`
 	globals.Globals
 }
 
@@ -42,13 +47,6 @@ type Array struct {
 	Size    string  `xml:"size,attr"`
 	Scope   *string `xml:"scope,attr,omitempty"`
 	Default *string `xml:"default,attr,omitempty"`
-}
-
-type Cuboid struct {
-	XMLName xml.Name `xml:"cuboid"`
-	BaseVariable
-	Min string `xml:"min,attr"`
-	Max string `xml:"max,attr"`
 }
 
 type WithTeam struct {

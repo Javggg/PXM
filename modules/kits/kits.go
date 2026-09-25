@@ -28,6 +28,10 @@ type Kit struct {
 	ResetEnderPearls   *string             `xml:"reset-ender-pearls,attr,omitempty"`
 	Clear              *Clear              `xml:"clear,omitempty"`
 	Items              []Item              `xml:"item"`
+	Heads              []Head              `xml:"head"`
+	Banners            []Banner            `xml:"banner"`
+	Books              []Book              `xml:"book"`
+	Fireworks          []Firework          `xml:"firework"`
 	Helmet             *Armor              `xml:"helmet,omitempty"`
 	Chestplate         *Armor              `xml:"chestplate,omitempty"`
 	Leggings           *Armor              `xml:"leggings,omitempty"`

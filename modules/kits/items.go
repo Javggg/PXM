@@ -7,9 +7,10 @@ import (
 )
 
 type BaseItem struct {
-	Slot *string `xml:"slot,attr,omitempty"`
-	Name *string `xml:"name,attr,omitempty"`
-	Lore *string `xml:"lore,attr,omitempty"`
+	Slot   *string `xml:"slot,attr,omitempty"`
+	Name   *string `xml:"name,attr,omitempty"`
+	Lore   *string `xml:"lore,attr,omitempty"`
+	Locked *string `xml:"locked,attr,omitempty"`
 }
 
 type Item struct {
@@ -22,7 +23,6 @@ type Item struct {
 	Amount             *string               `xml:"amount,attr,omitempty"`
 	Damage             *string               `xml:"damage,attr,omitempty"`
 	Unbreakable        *string               `xml:"unbreakable,attr,omitempty"`
-	Locked             *string               `xml:"locked,attr,omitempty"`
 	TeamColor          *string               `xml:"team-color,attr,omitempty"`
 	Grenade            *string               `xml:"grenade,attr,omitempty"`
 	GrenadePower       *string               `xml:"grenade-power,attr,omitempty"`
